@@ -1,0 +1,466 @@
+{
+  "brand": {
+    "name": "IM Infinity Medical",
+    "tagline": "高端緊緻提拉科技",
+    "subTagline": "專業醫療團隊・安心信賴之選"
+  },
+  "nav": {
+    "home": "首頁",
+    "about": "關於我們",
+    "services": "我們的服務",
+    "density": "無雙電波",
+    "cases": "真實案例",
+    "qa": "Q&A",
+    "contact": "聯絡我們",
+    "book": "立即預約"
+  },
+  "common": {
+    "learnMore": "了解更多",
+    "bookNow": "立即預約",
+    "explore": "深入了解",
+    "back": "返回",
+    "viewAll": "查看全部",
+    "submit": "送出",
+    "submitting": "送出中…",
+    "successMessage": "我們已收到您的訊息，將盡快與您聯絡。",
+    "required": "必填"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "高 端 緊 緻 提 拉 科 技",
+      "title1": "IM Infinity",
+      "title2": "Medical",
+      "subtitle": "結合單極與雙極專利能量，於深層與表層同時作用，立即輪廓提升・即時嫩膚。",
+      "cta1": "預約 DENSITY 體驗",
+      "cta2": "了解無雙電波"
+    },
+    "intro": {
+      "eyebrow": "About IM Infinity",
+      "title": "為香港帶來無雙的肌膚科技",
+      "body": "IM Infinity Medical 由資深醫學美容團隊主理，以精準的能量科技與藝術級的療程設計，為每位顧客打造安全、有效、即時可見的提升體驗。",
+      "stats": [
+        { "value": "10+", "label": "年臨床經驗" },
+        { "value": "5,000+", "label": "次治療紀錄" },
+        { "value": "99%", "label": "顧客滿意度" }
+      ]
+    },
+    "servicesPreview": {
+      "title": "我們的服務",
+      "subtitle": "結合先進科技與專業醫療，量身打造您的理想輪廓。",
+      "cta": "查看所有服務"
+    },
+    "densityHighlight": {
+      "eyebrow": "FLAGSHIP TECHNOLOGY",
+      "title": "無雙電波 DENSITY",
+      "body": "市場唯一整合單極（深層）與雙極（表層）的高頻電波系統，一次治療同時改善鬆弛、紋路、毛孔與膚色。",
+      "benefits": [
+        "改善皮膚鬆弛",
+        "膠原蛋白增生",
+        "減少皺紋",
+        "即時輪廓提升",
+        "亮白肌膚 · 減少泛紅",
+        "低痛感"
+      ]
+    },
+    "stats": {
+      "eyebrow": "臨床實證",
+      "title": "肉眼可見的逆齡證據",
+      "sourceLabel": "*數據來源：",
+      "items": [
+        { "value": "76%", "label": "膠原纖維密度增加*" },
+        { "value": "239%", "label": "膠原蛋白新生*" },
+        { "value": "82%", "label": "彈性纖維密度增加*" }
+      ]
+    },
+    "testimonials": {
+      "title": "顧客真實回饋",
+      "subtitle": "聆聽每一段重拾自信的故事。",
+      "items": [
+        {
+          "quote": "做完當天就感覺面部明顯緊緻，朋友都說我看起來更精神！",
+          "author": "Ms. Chan",
+          "meta": "DENSITY 全臉療程"
+        },
+        {
+          "quote": "醫生與顧問都非常專業，溫熱感舒適，幾乎沒有恢復期。",
+          "author": "Ms. Wong",
+          "meta": "眼周提升療程"
+        },
+        {
+          "quote": "腹部療程後皮膚明顯收緊，是我做過最有感的療程。",
+          "author": "Ms. Lee",
+          "meta": "身體緊緻療程"
+        }
+      ]
+    },
+    "ctaBanner": {
+      "title": "預約你的無雙體驗",
+      "body": "由專業醫療團隊一對一諮詢，為您量身打造療程方案。",
+      "cta": "立即預約"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "ABOUT US",
+      "title": "關於 IM Infinity Medical",
+      "body": "我們以醫學專業為本，以美學追求為魂，致力以最前沿的能量科技服務每一位顧客。"
+    },
+    "mvv": {
+      "title": "我們的信念",
+      "items": [
+        {
+          "title": "使命 Mission",
+          "body": "以安全、有效、無雙的療程，為顧客重塑自然優雅的自我。"
+        },
+        {
+          "title": "願景 Vision",
+          "body": "成為香港最受信賴的高端醫學美容品牌。"
+        },
+        {
+          "title": "價值 Values",
+          "body": "專業、誠信、藝術、創新——四大核心貫穿每一次療程。"
+        }
+      ]
+    },
+    "team": {
+      "title": "專業醫療團隊",
+      "subtitle": "由註冊醫生及資深治療師組成，提供安心而專業的服務。",
+      "members": [
+        { "name": "Dr. Lam", "role": "註冊醫生 · 醫學總監", "bio": "醫學美容臨床經驗 12 年。" },
+        { "name": "Dr. Cheung", "role": "註冊醫生", "bio": "專注於能量療程與皮膚科學。" },
+        { "name": "Ms. Ho", "role": "高級美容治療師", "bio": "DENSITY 認證療程師。" }
+      ]
+    },
+    "why": {
+      "title": "為何選擇 IM Infinity",
+      "items": [
+        { "title": "註冊醫生主理", "body": "每一療程皆由註冊醫生諮詢與監督。" },
+        { "title": "原廠認證儀器", "body": "採用 DENSITY 原廠認證設備與耗材。" },
+        { "title": "一對一療程設計", "body": "依據個人膚況量身打造治療方案。" },
+        { "title": "全程私密環境", "body": "獨立療程室確保您的舒適與私隱。" }
+      ]
+    }
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "OUR SERVICES",
+      "title": "我們的服務",
+      "body": "從輪廓提升到肌膚煥新，由專業團隊為您量身設計。"
+    },
+    "items": [
+      {
+        "tag": "FLAGSHIP",
+        "title": "無雙電波 DENSITY",
+        "body": "單極×雙極高頻電波，一次同時改善深層鬆弛與表層膚質。",
+        "cta": "深入了解",
+        "href": "/density"
+      },
+      {
+        "tag": "SKIN",
+        "title": "高效水光保濕",
+        "body": "深層補水導入，重塑透亮潤澤的肌膚質感。",
+        "cta": "預約諮詢",
+        "href": "/contact"
+      },
+      {
+        "tag": "CONSULT",
+        "title": "醫學美容諮詢",
+        "body": "由註冊醫生一對一評估，制定您的專屬美麗計劃。",
+        "cta": "預約諮詢",
+        "href": "/contact"
+      }
+    ]
+  },
+  "density": {
+    "hero": {
+      "eyebrow": "品 牌 代 言 人 ・ 李 英 愛",
+      "title": "無雙電波",
+      "subtitle": "DENSITY",
+      "body": "高端緊緻提拉科技 · 一次做到深淺層",
+      "cta": "立即預約"
+    },
+    "stats": {
+      "items": [
+        { "value": "76%", "label": "膠原纖維密度增加*" },
+        { "value": "239%", "label": "膠原蛋白新生*" },
+        { "value": "82%", "label": "彈性纖維密度增加*" }
+      ],
+      "source": "*數據來源：PMC8950306"
+    },
+    "features": {
+      "eyebrow": "DENSITY 技術特點",
+      "title": "四大專利核心科技",
+      "items": [
+        {
+          "title": "市場唯一 單極 × 雙極專利技術",
+          "subtitle": "Monopolar · Bipolar | Two High-Frequency Energy Modes"
+        },
+        {
+          "title": "五階可調式冷卻系統",
+          "subtitle": "5-Step Adjustable Cooling"
+        },
+        {
+          "title": "突破性探頭技術",
+          "subtitle": "6 Different Tips for Different Treatment Areas"
+        },
+        {
+          "title": "即時而明顯的效果",
+          "subtitle": "Immediate and Noticeable Results"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "六大核心效益",
+      "items": [
+        { "title": "改善皮膚鬆弛", "icon": "wave" },
+        { "title": "減少皺紋", "icon": "lines" },
+        { "title": "亮白肌膚 · 減少泛紅", "icon": "sparkle" },
+        { "title": "膠原蛋白增生", "icon": "molecule" },
+        { "title": "即時輪廓提升", "icon": "arrow-up" },
+        { "title": "低痛感", "icon": "feather" }
+      ]
+    },
+    "tips": {
+      "title": "探頭技術",
+      "subtitle": "依據不同部位與深度，選擇最合適的能量傳遞。",
+      "items": [
+        {
+          "name": "CLASSIC TIP",
+          "subtitle": "經典探頭 · 僅發射單極高頻能量",
+          "body": "採用單極（Monopolar）方式運作，能夠將熱能傳遞到皮膚深層，因此相對來說疼痛感較強，但對皮膚表層的即時反應可能較弱。"
+        },
+        {
+          "name": "HIGH TIP",
+          "subtitle": "高頻探頭 · 單極 × 雙極高頻能量系統",
+          "body": "結合單極（Monopolar）與雙極（Bipolar）技術，88mm² 電極面積，皮膚深層提拉同時也能改善皮膚表層，即時收細毛孔，膚色變亮（雙極效果），因此相較於經典探頭，疼痛感較低，術後修復速度更快，效果更顯著。"
+        }
+      ]
+    },
+    "improvements": {
+      "title": "改善問題",
+      "items": [
+        "臉部輪廓線模糊、嘴邊肉、法令紋、木偶紋。",
+        "眼周細紋、眼皮鬆弛、泡泡眼、提升眼神。",
+        "身體鬆弛、橙皮組織（腹部、手臂等）。",
+        "毛孔粗大、膚質暗沉。"
+      ]
+    },
+    "handle": {
+      "title": "無雙電波 DENSITY",
+      "subtitle": "手把調控 · 一機掌握全方位療程",
+      "controls": [
+        { "label": "手把調控", "body": "待機模式 / 治療模式 · 能量調整" },
+        { "label": "脈衝切換", "body": "手動模式下可使用" },
+        { "label": "LED 展示", "body": "即時皮膚溫度 · 發數計算" },
+        { "label": "無雙探頭", "body": "三種選擇，對應全身需求" }
+      ],
+      "tipsTitle": "三大專屬探頭",
+      "tipList": [
+        { "name": "H-Eye Tip", "body": "改善眼周細紋、泡泡眼、眼尾下垂。" },
+        { "name": "H-Face Tip", "body": "全臉拉提、緊緻、淡化法令紋。" },
+        { "name": "H-Body Tip", "body": "腹部、手臂、臀腿等大面積鬆弛。" }
+      ]
+    },
+    "heating": {
+      "title": "加熱技術對比",
+      "density": {
+        "title": "DENSITY 絕對容積式加熱",
+        "body": "每一次擊發同時釋放單極 × 雙極 RF 能量，雙極的正負極電流能減少單極熱能流失，提供完整能量輸出。"
+      },
+      "traditional": {
+        "title": "傳統單極電波 · 容積式加熱",
+        "body": "每次擊發僅有單極電波能量，其電流方向的不確定性，能量容易分散，提高功率的同時增加皮膚負擔。"
+      }
+    },
+    "aging": {
+      "title": "逆齡效果時間軸",
+      "classicTitle": "CLASSIC TIP · 單極逆齡效果",
+      "highTitle": "HIGH TIP · 單極 × 雙極逆齡效果",
+      "badge": "即極嫩膚效果",
+      "classic": [
+        { "phase": "即時效果", "primary": "現有膠原蛋白即時收縮", "secondary": "面部即時收緊" },
+        { "phase": "一個月", "primary": "新生膠原蛋白持續合成", "secondary": "肌膚開始緊致抗皺" },
+        { "phase": "三個月後", "primary": "膠原質量達致高峰", "secondary": "明顯減齡 · 完全提升和緊緻" },
+        { "phase": "一年後", "primary": "膠原狀態開始下降", "secondary": "治療效果開始減弱" }
+      ],
+      "high": [
+        { "phase": "即時效果", "primary": "現有膠原蛋白即時收緊提升", "secondary": "面部即時收緊提升 · 即時嫩膚效果" },
+        { "phase": "一個月後", "primary": "新生膠原蛋白持續合成", "secondary": "肌膚開始緊致抗皺" },
+        { "phase": "三個月後", "primary": "膠原質量達致高峰", "secondary": "明顯減齡 · 完全提升和緊緻" },
+        { "phase": "十八個月後", "primary": "膠原狀態開始下降", "secondary": "治療效果開始減弱" }
+      ]
+    },
+    "temperature": {
+      "title": "單極能量",
+      "body": "Density 的單極射頻能量利用熱效應影響膠原蛋白，從而啟動膠原蛋白新生機制（Neocollagenesis）。",
+      "scaleTitle": "次優的膠原蛋白 · 膠原蛋白變成 · 最優質的膠原蛋白",
+      "footnote": "Density 能發放高達 75°C 的高溫，此溫度足以令膠原蛋白變性（Denaturation）及令纖維母細胞增生出優質的膠原蛋白。"
+    },
+    "comparison": {
+      "title": "Density 黑科技對比",
+      "subtitle": "Density 專利黑科技與鳳凰電波有相同的功率強度，比一般電波緊緻效果外還多了一個做完快速美肌的效果。",
+      "headers": ["", "無雙電波 DENSITY", "Thermage", "Ultherapy"],
+      "rows": [
+        {
+          "label": "能量模式",
+          "values": [
+            "結合單極（深層）& 雙極（表層），一次做到深淺層。",
+            "專一單極能量，主要作用於深層組織。",
+            "高能聚焦超聲波"
+          ]
+        },
+        {
+          "label": "功率 / 溫度",
+          "values": ["400w / 55-75°C", "400w / 45-75°C", "400w / 65°C"]
+        },
+        {
+          "label": "痛感",
+          "values": [
+            "獨特冷卻系統與設計，痛感大幅降低，溫熱感為主。",
+            "能量累積深層，傳統上痛感較高，但有冷卻技術。",
+            "較高（酸麻最痛感）"
+          ]
+        },
+        {
+          "label": "效果",
+          "values": [
+            "立即輪廓提升效果，毛孔細紋同時改善，效果更全面。",
+            "效果穩定，主要追求深層拉提與輪廓穩定。",
+            "即時效果，最佳效果通常在 2 至 3 個月內顯現。"
+          ]
+        },
+        {
+          "label": "恢復期",
+          "values": ["幾乎零恢復期，輕微紅腫 2-3 小時緩解。", "2-7 天，微紅腫、酸痛。", "2-7 天，微紅腫。"]
+        },
+        {
+          "label": "適合對象",
+          "values": [
+            "怕痛、醫美新手、想兼顧膚質與輪廓者。",
+            "追求穩定深層緊緻、能耐受痛感者。",
+            "輪廓下垂，嚴重追求筋膜層提拉者。"
+          ]
+        }
+      ],
+      "footer": "精 準 能 量 · 深 淺 兼 顧 · 速 效 美 肌"
+    },
+    "aftercare": {
+      "title": "治療後注意事項",
+      "items": [
+        {
+          "title": "加強保濕",
+          "body": "在治療一週後肌膚會較為乾燥，保水功能尚未完全恢復，因此要加強保濕。"
+        },
+        {
+          "title": "不擦酸類產品",
+          "body": "在治療一週後肌膚會比較脆弱，避免使用含酸類產品，以免刺激角質層代謝。"
+        },
+        {
+          "title": "注意防曬",
+          "body": "出門時要塗抹防曬產品，搭配防曬用品，盡可能避免刺激皮膚。"
+        }
+      ],
+      "footer": "Density 的效果維持至少一年，肌膚老化、生活作息、飲食習慣等會影響效果，因此注意保養亦是持久美麗的關鍵。"
+    },
+    "ctaBanner": {
+      "title": "預約 DENSITY 體驗",
+      "body": "立即諮詢，由註冊醫生為您量身規劃療程。",
+      "cta": "立即預約"
+    }
+  },
+  "cases": {
+    "hero": {
+      "eyebrow": "BEFORE & AFTER",
+      "title": "真實案例",
+      "body": "顧客授權分享之真實療程紀錄。效果因人而異。"
+    },
+    "filters": {
+      "all": "全部",
+      "face": "臉部",
+      "eye": "眼周",
+      "body": "身體"
+    },
+    "placeholderBefore": "Before",
+    "placeholderAfter": "After",
+    "disclaimer": "*效果因個人膚況、生活習慣而異，並不代表所有人皆能達到相同效果。"
+  },
+  "qa": {
+    "hero": {
+      "eyebrow": "Q&A",
+      "title": "常見問題",
+      "body": "我們整理了顧客最常詢問的問題，協助您快速了解 DENSITY 療程。"
+    },
+    "groups": [
+      {
+        "title": "關於治療",
+        "items": [
+          { "q": "DENSITY 療程適合哪些人？", "a": "適合面部輪廓鬆弛、皺紋、毛孔粗大、皮膚暗沉的客戶，亦適合身體鬆弛的部位如腹部、手臂、臀腿。" },
+          { "q": "一次療程需要多久？", "a": "依治療部位約 30-60 分鐘，全臉約 45 分鐘。" },
+          { "q": "需要做幾次才有效果？", "a": "單次即可看到輪廓提升的效果，1 個月後膠原持續新生，3 個月達致高峰。" }
+        ]
+      },
+      {
+        "title": "安全性",
+        "items": [
+          { "q": "DENSITY 安全嗎？", "a": "DENSITY 為原廠認證儀器，配備五階可調式冷卻系統與即時溫度監測，治療由註冊醫生及認證療程師執行。" },
+          { "q": "會有副作用嗎？", "a": "少數人術後會出現輕微紅腫，一般 2-3 小時內消退，幾乎零恢復期。" },
+          { "q": "孕婦或哺乳期可以做嗎？", "a": "為安全起見，孕婦、哺乳期、心臟裝置植入者不建議接受射頻療程。" }
+        ]
+      },
+      {
+        "title": "術後保養",
+        "items": [
+          { "q": "術後需要注意什麼？", "a": "加強保濕、避免酸類保養品、注重防曬，可幫助延長療程效果。" },
+          { "q": "效果可以維持多久？", "a": "效果通常維持至少一年，個人保養習慣會影響維持時間。" }
+        ]
+      },
+      {
+        "title": "收費與預約",
+        "items": [
+          { "q": "如何預約諮詢？", "a": "可透過聯絡我們頁面留下資料，或撥打診所專線、WhatsApp 預約。" },
+          { "q": "收費如何計算？", "a": "依治療部位與發數而定，建議先預約免費諮詢，由醫生評估後報價。" }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "CONTACT",
+      "title": "聯絡我們",
+      "body": "歡迎預約諮詢，我們的專業團隊將為您解答任何疑問。"
+    },
+    "form": {
+      "title": "預約諮詢",
+      "name": "姓名",
+      "phone": "聯絡電話",
+      "email": "電郵地址",
+      "interest": "有興趣的療程",
+      "interestPlaceholder": "請選擇",
+      "options": ["無雙電波 DENSITY", "水光保濕", "醫學美容諮詢", "其他"],
+      "message": "您的訊息",
+      "messagePlaceholder": "請告訴我們您的需求……",
+      "submit": "送出諮詢"
+    },
+    "info": {
+      "title": "診所資訊",
+      "addressLabel": "地址",
+      "address": "香港中環皇后大道中 ____ 號 __ 樓",
+      "phoneLabel": "電話",
+      "phone": "+852 0000 0000",
+      "emailLabel": "電郵",
+      "email": "hello@iminfinity.hk",
+      "hoursLabel": "營業時間",
+      "hours": "週一至週六 11:00–20:00",
+      "whatsapp": "WhatsApp 即時預約",
+      "mapPlaceholder": "地圖位置"
+    }
+  },
+  "footer": {
+    "tagline": "高端緊緻提拉科技 · 安心信賴之選",
+    "navTitle": "快速導覽",
+    "contactTitle": "聯絡資訊",
+    "socialTitle": "追蹤我們",
+    "copyright": "© {year} IM Infinity Medical. 版權所有。",
+    "disclaimer": "本網站內容僅供參考，並不構成醫療建議。療程效果因人而異。"
+  }
+}

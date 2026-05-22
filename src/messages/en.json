@@ -1,0 +1,466 @@
+{
+  "brand": {
+    "name": "IM Infinity Medical",
+    "tagline": "Advanced Skin-Tightening Technology",
+    "subTagline": "Trusted Medical Aesthetics in Hong Kong"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "density": "DENSITY",
+    "cases": "Before & After",
+    "qa": "Q&A",
+    "contact": "Contact",
+    "book": "Book Now"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "bookNow": "Book Now",
+    "explore": "Explore",
+    "back": "Back",
+    "viewAll": "View all",
+    "submit": "Submit",
+    "submitting": "Submitting…",
+    "successMessage": "Thank you. We have received your enquiry and will be in touch shortly.",
+    "required": "Required"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "A D V A N C E D   L I F T I N G   T E C H N O L O G Y",
+      "title1": "IM Infinity",
+      "title2": "Medical",
+      "subtitle": "Patented Monopolar × Bipolar RF energy working simultaneously at depth and surface — instant contour lift, immediate skin glow.",
+      "cta1": "Book a DENSITY session",
+      "cta2": "Discover DENSITY"
+    },
+    "intro": {
+      "eyebrow": "About IM Infinity",
+      "title": "Unrivalled skin technology, for Hong Kong",
+      "body": "IM Infinity Medical is led by a senior medical aesthetics team — pairing precision energy science with curated treatment artistry to deliver safe, effective, immediately visible results.",
+      "stats": [
+        { "value": "10+", "label": "Years clinical experience" },
+        { "value": "5,000+", "label": "Treatments delivered" },
+        { "value": "99%", "label": "Client satisfaction" }
+      ]
+    },
+    "servicesPreview": {
+      "title": "Our Services",
+      "subtitle": "Cutting-edge technology and medical expertise, tailored to your ideal contour.",
+      "cta": "View all services"
+    },
+    "densityHighlight": {
+      "eyebrow": "FLAGSHIP TECHNOLOGY",
+      "title": "DENSITY 無雙電波",
+      "body": "The only system integrating monopolar (deep) and bipolar (surface) high-frequency RF — one session for laxity, lines, pores and tone, together.",
+      "benefits": [
+        "Skin tightening",
+        "Collagen regeneration",
+        "Wrinkle reduction",
+        "Instant contour lift",
+        "Brighter tone · less redness",
+        "Low discomfort"
+      ]
+    },
+    "stats": {
+      "eyebrow": "Clinically Proven",
+      "title": "Visible evidence of age-reversal",
+      "sourceLabel": "*Source: ",
+      "items": [
+        { "value": "76%", "label": "Increase in collagen fiber density*" },
+        { "value": "239%", "label": "Neocollagenesis*" },
+        { "value": "82%", "label": "Increase in elastin fiber density*" }
+      ]
+    },
+    "testimonials": {
+      "title": "Words from our clients",
+      "subtitle": "Real journeys, real confidence.",
+      "items": [
+        {
+          "quote": "I could feel the lift the same day. Friends said I looked refreshed.",
+          "author": "Ms. Chan",
+          "meta": "Full-face DENSITY"
+        },
+        {
+          "quote": "The doctor and consultant were impeccably professional — warm sensation only, almost zero downtime.",
+          "author": "Ms. Wong",
+          "meta": "Eye-area lifting"
+        },
+        {
+          "quote": "Visible tightening on the abdomen — the most rewarding treatment I have had.",
+          "author": "Ms. Lee",
+          "meta": "Body tightening"
+        }
+      ]
+    },
+    "ctaBanner": {
+      "title": "Book your Infinity experience",
+      "body": "One-to-one consultation with our medical team, tailored to your goals.",
+      "cta": "Book Now"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "ABOUT US",
+      "title": "About IM Infinity Medical",
+      "body": "Grounded in medical expertise. Driven by an aesthetic ideal. Powered by the most advanced energy science."
+    },
+    "mvv": {
+      "title": "Our Philosophy",
+      "items": [
+        {
+          "title": "Mission",
+          "body": "To deliver safe, effective, unrivalled treatments that restore each client's natural elegance."
+        },
+        {
+          "title": "Vision",
+          "body": "To be Hong Kong's most trusted high-end medical aesthetics brand."
+        },
+        {
+          "title": "Values",
+          "body": "Expertise, integrity, artistry and innovation — woven into every session."
+        }
+      ]
+    },
+    "team": {
+      "title": "Our Medical Team",
+      "subtitle": "Registered doctors and senior therapists, delivering care you can trust.",
+      "members": [
+        { "name": "Dr. Lam", "role": "Registered Doctor · Medical Director", "bio": "12 years of clinical aesthetics experience." },
+        { "name": "Dr. Cheung", "role": "Registered Doctor", "bio": "Specialist in energy-based devices and dermatology." },
+        { "name": "Ms. Ho", "role": "Senior Aesthetic Therapist", "bio": "Certified DENSITY treatment specialist." }
+      ]
+    },
+    "why": {
+      "title": "Why IM Infinity",
+      "items": [
+        { "title": "Doctor-led", "body": "Every treatment is consulted and supervised by a registered doctor." },
+        { "title": "Authentic devices", "body": "Only original-certified DENSITY devices and consumables." },
+        { "title": "Tailored plans", "body": "Bespoke treatment plans based on your individual skin profile." },
+        { "title": "Private suites", "body": "Discreet, individual treatment rooms for total comfort." }
+      ]
+    }
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "OUR SERVICES",
+      "title": "Our Services",
+      "body": "From contour lifting to skin renewal — designed by experts, around you."
+    },
+    "items": [
+      {
+        "tag": "FLAGSHIP",
+        "title": "DENSITY 無雙電波",
+        "body": "Monopolar × Bipolar RF — one session, deep lift and surface glow together.",
+        "cta": "Explore",
+        "href": "/density"
+      },
+      {
+        "tag": "SKIN",
+        "title": "Hydration Booster",
+        "body": "Deep-delivery hydration for radiant, translucent skin.",
+        "cta": "Book Consultation",
+        "href": "/contact"
+      },
+      {
+        "tag": "CONSULT",
+        "title": "Aesthetic Consultation",
+        "body": "One-to-one assessment with a registered doctor — your bespoke plan begins here.",
+        "cta": "Book Consultation",
+        "href": "/contact"
+      }
+    ]
+  },
+  "density": {
+    "hero": {
+      "eyebrow": "B R A N D   A M B A S S A D O R   ·   L E E   Y O U N G - A E",
+      "title": "DENSITY",
+      "subtitle": "無雙電波",
+      "body": "Advanced lifting technology — deep and surface, in a single session.",
+      "cta": "Book Now"
+    },
+    "stats": {
+      "items": [
+        { "value": "76%", "label": "Collagen fiber density increase*" },
+        { "value": "239%", "label": "Neocollagenesis*" },
+        { "value": "82%", "label": "Elastin fiber density increase*" }
+      ],
+      "source": "*Source: PMC8950306"
+    },
+    "features": {
+      "eyebrow": "DENSITY Technology",
+      "title": "Four core innovations",
+      "items": [
+        {
+          "title": "Only patented Monopolar × Bipolar system",
+          "subtitle": "Two high-frequency energy modes in one device."
+        },
+        {
+          "title": "5-Step Adjustable Cooling",
+          "subtitle": "Precision comfort, calibrated per zone."
+        },
+        {
+          "title": "Breakthrough tip technology",
+          "subtitle": "6 different tips for different treatment areas."
+        },
+        {
+          "title": "Immediate, visible results",
+          "subtitle": "Tightening you can see — the same day."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Six Core Benefits",
+      "items": [
+        { "title": "Skin tightening", "icon": "wave" },
+        { "title": "Wrinkle reduction", "icon": "lines" },
+        { "title": "Brighter tone · less redness", "icon": "sparkle" },
+        { "title": "Collagen regeneration", "icon": "molecule" },
+        { "title": "Instant contour lift", "icon": "arrow-up" },
+        { "title": "Low discomfort", "icon": "feather" }
+      ]
+    },
+    "tips": {
+      "title": "Tip Technology",
+      "subtitle": "Targeted energy delivery — selected for each treatment depth and area.",
+      "items": [
+        {
+          "name": "CLASSIC TIP",
+          "subtitle": "Pure monopolar high-frequency energy",
+          "body": "Delivers heat to the deep dermis via monopolar RF. Stronger sensation, with a more subtle immediate surface effect."
+        },
+        {
+          "name": "HIGH TIP",
+          "subtitle": "Monopolar × Bipolar high-frequency system",
+          "body": "Combines Monopolar and Bipolar — with an 88mm² electrode area, lifting the deep dermis while refining the surface: instantly tighter pores, brighter tone, lower discomfort and faster recovery."
+        }
+      ]
+    },
+    "improvements": {
+      "title": "Concerns we address",
+      "items": [
+        "Soft jawline, jowls, nasolabial folds, marionette lines.",
+        "Eye-area lines, lid laxity, puffy eyes, brighter gaze.",
+        "Body laxity and cellulite (abdomen, arms and more).",
+        "Enlarged pores and dull complexion."
+      ]
+    },
+    "handle": {
+      "title": "DENSITY 無雙電波",
+      "subtitle": "Smart handpiece — total control of every session.",
+      "controls": [
+        { "label": "Handpiece control", "body": "Standby / Treatment modes · energy adjustment." },
+        { "label": "Pulse switching", "body": "Available in manual mode." },
+        { "label": "LED display", "body": "Real-time skin temperature · shot counter." },
+        { "label": "Infinity tips", "body": "Three specialised tips for every need." }
+      ],
+      "tipsTitle": "Three signature tips",
+      "tipList": [
+        { "name": "H-Eye Tip", "body": "Eye-area lines, puffy eyes, sagging corners." },
+        { "name": "H-Face Tip", "body": "Full-face lift, tightening, smoothing lines." },
+        { "name": "H-Body Tip", "body": "Large-area laxity — abdomen, arms, thighs." }
+      ]
+    },
+    "heating": {
+      "title": "Heating Comparison",
+      "density": {
+        "title": "DENSITY · Absolute Volumetric Heating",
+        "body": "Each pulse delivers Monopolar × Bipolar RF simultaneously — the bipolar current path reduces monopolar heat loss for complete energy output."
+      },
+      "traditional": {
+        "title": "Traditional Monopolar · Volumetric Heating",
+        "body": "Each pulse delivers monopolar RF only — undirected current paths scatter energy, increasing skin burden as power rises."
+      }
+    },
+    "aging": {
+      "title": "Age-reversal timeline",
+      "classicTitle": "CLASSIC TIP · Monopolar Effect",
+      "highTitle": "HIGH TIP · Monopolar × Bipolar Effect",
+      "badge": "Instant glow",
+      "classic": [
+        { "phase": "Instant", "primary": "Existing collagen contracts immediately", "secondary": "Face feels instantly tightened" },
+        { "phase": "1 month", "primary": "New collagen continues to form", "secondary": "Skin begins to firm and smooth" },
+        { "phase": "3 months", "primary": "Collagen quality peaks", "secondary": "Visible age-reversal · full lift and tightening" },
+        { "phase": "1 year", "primary": "Collagen state begins to decline", "secondary": "Effect begins to diminish" }
+      ],
+      "high": [
+        { "phase": "Instant", "primary": "Immediate lift and surface glow", "secondary": "Face is tighter and brighter the same day" },
+        { "phase": "1 month", "primary": "New collagen continues to form", "secondary": "Skin begins to firm and smooth" },
+        { "phase": "3 months", "primary": "Collagen quality peaks", "secondary": "Visible age-reversal · full lift and tightening" },
+        { "phase": "18 months", "primary": "Collagen state begins to decline", "secondary": "Effect begins to diminish" }
+      ]
+    },
+    "temperature": {
+      "title": "Monopolar Energy",
+      "body": "DENSITY's monopolar RF uses thermal effects to influence collagen, triggering the body's neocollagenesis response.",
+      "scaleTitle": "Suboptimal · Denatured · Optimal collagen",
+      "footnote": "DENSITY can deliver up to 75°C — high enough to denature collagen and stimulate fibroblasts to produce premium-quality collagen."
+    },
+    "comparison": {
+      "title": "How DENSITY compares",
+      "subtitle": "DENSITY's patented engineering matches the power of leading RF — plus a glow effect leading systems cannot match.",
+      "headers": ["", "DENSITY", "Thermage", "Ultherapy"],
+      "rows": [
+        {
+          "label": "Energy mode",
+          "values": [
+            "Monopolar (deep) × Bipolar (surface) — depth and surface in one session.",
+            "Monopolar only — primarily acting on the deep tissue.",
+            "High-energy focused ultrasound."
+          ]
+        },
+        {
+          "label": "Power / Temp",
+          "values": ["400w · 55–75°C", "400w · 45–75°C", "400w · 65°C"]
+        },
+        {
+          "label": "Sensation",
+          "values": [
+            "Proprietary cooling — warm sensation dominates, low discomfort.",
+            "Deep energy accumulation — traditionally higher discomfort, with cooling.",
+            "Higher (sharp/aching sensation)."
+          ]
+        },
+        {
+          "label": "Result",
+          "values": [
+            "Instant lift, plus pore and line refinement — more complete effect.",
+            "Stable result — focused on deep lifting and contour.",
+            "Immediate, with best results developing over 2–3 months."
+          ]
+        },
+        {
+          "label": "Recovery",
+          "values": ["Near-zero — mild flush resolves in 2–3 hours.", "2–7 days — mild swelling and soreness.", "2–7 days — mild swelling."]
+        },
+        {
+          "label": "Best for",
+          "values": [
+            "Sensitive to pain · aesthetic newcomers · wanting both texture and contour.",
+            "Seeking stable deep lifting · tolerant of stronger sensation.",
+            "Pronounced laxity · seeking SMAS-layer lifting."
+          ]
+        }
+      ],
+      "footer": "P R E C I S I O N   ·   D E P T H   ·   I N S T A N T   G L O W"
+    },
+    "aftercare": {
+      "title": "Aftercare Notes",
+      "items": [
+        {
+          "title": "Hydrate intensively",
+          "body": "Skin can feel drier for around a week post-treatment as the moisture barrier rebuilds — intensify hydration."
+        },
+        {
+          "title": "Avoid acid actives",
+          "body": "For about a week the skin is more sensitive — skip acid-based exfoliants to protect the barrier."
+        },
+        {
+          "title": "Strict sun protection",
+          "body": "Use broad-spectrum SPF whenever outdoors to minimise irritation and protect results."
+        }
+      ],
+      "footer": "DENSITY results last at least one year. Lifestyle, sleep and skincare habits all influence longevity — ongoing care is key."
+    },
+    "ctaBanner": {
+      "title": "Book your DENSITY experience",
+      "body": "Speak to a registered doctor and plan your bespoke session.",
+      "cta": "Book Now"
+    }
+  },
+  "cases": {
+    "hero": {
+      "eyebrow": "BEFORE & AFTER",
+      "title": "Real client results",
+      "body": "Real treatment records, shared with consent. Individual results vary."
+    },
+    "filters": {
+      "all": "All",
+      "face": "Face",
+      "eye": "Eye",
+      "body": "Body"
+    },
+    "placeholderBefore": "Before",
+    "placeholderAfter": "After",
+    "disclaimer": "*Individual results vary based on skin condition and lifestyle and do not guarantee identical outcomes."
+  },
+  "qa": {
+    "hero": {
+      "eyebrow": "Q&A",
+      "title": "Frequently Asked Questions",
+      "body": "Quick answers to the questions our clients ask most about DENSITY."
+    },
+    "groups": [
+      {
+        "title": "About the treatment",
+        "items": [
+          { "q": "Who is DENSITY suitable for?", "a": "Anyone with mild-to-moderate facial laxity, lines, enlarged pores or dull tone. Also recommended for body laxity such as the abdomen, arms and thighs." },
+          { "q": "How long does each session take?", "a": "About 30–60 minutes depending on the area; full-face sessions average 45 minutes." },
+          { "q": "How many sessions do I need?", "a": "Lifting effect is visible after a single session. Collagen continues to form over the following month, peaking around 3 months." }
+        ]
+      },
+      {
+        "title": "Safety",
+        "items": [
+          { "q": "Is DENSITY safe?", "a": "Yes. The device is original-certified, with 5-step adjustable cooling and real-time temperature monitoring. Treatments are performed by registered doctors and certified specialists." },
+          { "q": "Are there side effects?", "a": "Mild flushing may occur and typically resolves within 2–3 hours. Downtime is essentially zero." },
+          { "q": "Can I be treated while pregnant or nursing?", "a": "For safety, RF treatments are not recommended for pregnancy, nursing, or clients with implanted cardiac devices." }
+        ]
+      },
+      {
+        "title": "Aftercare",
+        "items": [
+          { "q": "What do I do after treatment?", "a": "Hydrate intensively, avoid acid-based actives, and use strict sun protection to prolong results." },
+          { "q": "How long do results last?", "a": "Effects last at least one year; lifestyle and skincare habits influence duration." }
+        ]
+      },
+      {
+        "title": "Pricing & booking",
+        "items": [
+          { "q": "How do I book a consultation?", "a": "Submit the contact form, or reach us by phone or WhatsApp." },
+          { "q": "How is pricing calculated?", "a": "Pricing depends on treatment area and shot count. Book a complimentary consultation for a personalised quote." }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "CONTACT",
+      "title": "Contact Us",
+      "body": "Book a consultation — our team is here to answer every question."
+    },
+    "form": {
+      "title": "Book a consultation",
+      "name": "Full name",
+      "phone": "Phone",
+      "email": "Email",
+      "interest": "Treatment of interest",
+      "interestPlaceholder": "Please select",
+      "options": ["DENSITY 無雙電波", "Hydration Booster", "Aesthetic Consultation", "Other"],
+      "message": "Your message",
+      "messagePlaceholder": "Tell us about your goals…",
+      "submit": "Submit enquiry"
+    },
+    "info": {
+      "title": "Clinic information",
+      "addressLabel": "Address",
+      "address": "____ Queen's Road Central, Central, Hong Kong",
+      "phoneLabel": "Phone",
+      "phone": "+852 0000 0000",
+      "emailLabel": "Email",
+      "email": "hello@iminfinity.hk",
+      "hoursLabel": "Hours",
+      "hours": "Mon–Sat · 11:00–20:00",
+      "whatsapp": "WhatsApp instant booking",
+      "mapPlaceholder": "Map location"
+    }
+  },
+  "footer": {
+    "tagline": "Advanced lifting technology — trusted, in Hong Kong.",
+    "navTitle": "Explore",
+    "contactTitle": "Contact",
+    "socialTitle": "Follow",
+    "copyright": "© {year} IM Infinity Medical. All rights reserved.",
+    "disclaimer": "Content is for general information and does not constitute medical advice. Individual results vary."
+  }
+}
