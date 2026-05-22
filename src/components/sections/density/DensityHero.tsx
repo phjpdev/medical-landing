@@ -12,25 +12,50 @@ export function DensityHero() {
 
   return (
     <section className="relative -mt-20 flex min-h-[100svh] items-center overflow-hidden lg:-mt-24">
+      {/* Solid cream strip behind the fixed navbar (keeps video out of the nav area) */}
+      <div className="absolute inset-x-0 top-0 h-20 bg-cream lg:h-24" />
+
+      {/* Background video — starts BELOW the navbar, fills the rest of the hero */}
+      <video
+        className="absolute inset-x-0 bottom-0 top-20 h-[calc(100%-5rem)] w-full object-cover lg:top-24 lg:h-[calc(100%-6rem)]"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden
+      >
+        <source src="/treeelink.mp4" type="video/mp4" />
+      </video>
+
+      {/* Cream/gold tint overlay — lighter on mobile so the video stays visible across the taller stacked layout */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-x-0 bottom-0 top-20 h-[calc(100%-5rem)] lg:hidden"
         style={{
           background:
-            "linear-gradient(180deg, #FBF6E3 0%, #F5E6B8 35%, #FAF6EC 70%, #F5EFE0 100%)",
+            "linear-gradient(180deg, rgba(251,246,227,0.42) 0%, rgba(245,230,184,0.28) 50%, rgba(250,246,236,0.42) 100%)",
+        }}
+      />
+      {/* Desktop overlay — heavier tint (text-on-side layout doesn't need to see video as much) */}
+      <div
+        className="absolute inset-x-0 bottom-0 hidden h-[calc(100%-6rem)] lg:block lg:top-24"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(251,246,227,0.78) 0%, rgba(245,230,184,0.62) 35%, rgba(250,246,236,0.72) 70%, rgba(245,239,224,0.85) 100%)",
         }}
       />
       <div
         className="absolute inset-0 opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 70% 40%, rgba(212,175,55,0.30), transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 70% 40%, rgba(212,175,55,0.32), transparent 70%)",
         }}
       />
-      <div className="particle-bg absolute inset-0 opacity-40" />
+      <div className="particle-bg absolute inset-0 opacity-30" />
 
       {/* Decorative gold streaks */}
       <svg
-        className="absolute inset-0 h-full w-full opacity-40"
+        className="absolute inset-0 h-full w-full opacity-30"
         viewBox="0 0 1440 900"
         fill="none"
         preserveAspectRatio="xMidYMid slice"
@@ -66,7 +91,9 @@ export function DensityHero() {
           </h1>
 
           <GoldDivider className="!justify-start" />
-          <p className="max-w-xl text-lg leading-relaxed text-charcoal/75">{t("body")}</p>
+          <p className="max-w-xl text-lg leading-relaxed text-charcoal/80 [text-shadow:_0_1px_0_rgba(255,255,255,0.4)]">
+            {t("body")}
+          </p>
 
           <div className="pt-2">
             <Link href="/contact" className="btn-gold group">
@@ -99,7 +126,7 @@ export function DensityHero() {
         </motion.div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-cream" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-b from-transparent to-cream" />
     </section>
   );
 }
