@@ -9,7 +9,7 @@ import { NAV_ITEMS } from "@/lib/constants";
 import { GoldDivider } from "@/components/visual/GoldDivider";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
-export function MobileMenu() {
+export function MobileMenu({ variant = "light" }: { variant?: "light" | "dark" }) {
   const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
 
@@ -18,7 +18,10 @@ export function MobileMenu() {
       <SheetTrigger asChild>
         <button
           aria-label="Open menu"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold-primary/30 text-gold-deep transition hover:bg-gold-primary/10 lg:hidden"
+          className={
+            "inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold-primary/30 transition hover:bg-gold-primary/10 lg:hidden " +
+            (variant === "dark" ? "text-gold-light" : "text-gold-deep")
+          }
         >
           <Menu className="h-5 w-5" />
         </button>
