@@ -39,8 +39,8 @@ export function DensityStats() {
   const items = t.raw("items") as { value: string; label: string }[];
 
   return (
-    <section className="container-x py-16 md:py-24">
-      <div className="grid items-stretch gap-px overflow-hidden rounded-3xl gold-border bg-gold-primary/15 sm:grid-cols-3">
+    <section className="container-x relative py-16 md:py-24">
+      <div className="grid items-stretch gap-px overflow-hidden rounded-3xl gold-border bg-gold-primary/15 shadow-gold-lg sm:grid-cols-3">
         {items.map((it, i) => (
           <motion.div
             key={it.label}

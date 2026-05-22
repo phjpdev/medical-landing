@@ -24,7 +24,7 @@ export function DensityBenefits() {
   const items = t.raw("items") as { title: string; icon: string }[];
 
   return (
-    <section className="container-x py-24">
+    <section className="container-x relative py-24">
       <SectionEyebrow eyebrow="CORE BENEFITS" title={t("title")} />
 
       <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

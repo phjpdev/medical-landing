@@ -21,14 +21,10 @@ export function ImageShowcase({
   alt: string;
   ratio?: "auto" | "wide" | "square" | "tall";
   maxWidth?: string;
-  variant?: "cream" | "gold";
+  variant?: "cream" | "gold" | "transparent";
   width?: number;
   height?: number;
 }) {
-  const bg =
-    variant === "gold"
-      ? "linear-gradient(180deg, #FAF6EC 0%, #F5E6B8 50%, #FAF6EC 100%)"
-      : undefined;
   const ratioClass =
     ratio === "wide"
       ? "aspect-[16/9]"
@@ -40,18 +36,25 @@ export function ImageShowcase({
 
   return (
     <section className="relative overflow-hidden py-24">
-      <div
-        className="absolute inset-0"
-        style={{ background: bg ?? undefined }}
-      />
+      {variant === "gold" && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, #FAF6EC 0%, #F5E6B8 50%, #FAF6EC 100%)",
+          }}
+        />
+      )}
       {variant === "cream" && <div className="absolute inset-0 bg-cream-radial" />}
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(212,175,55,0.18), transparent 70%)",
-        }}
-      />
+      {variant !== "transparent" && (
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(212,175,55,0.18), transparent 70%)",
+          }}
+        />
+      )}
 
       <div className="container-x relative">
         {(eyebrow || title || body) && (

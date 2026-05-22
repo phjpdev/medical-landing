@@ -6,6 +6,7 @@ import { HandleAnatomy } from "@/components/sections/density/HandleAnatomy";
 import { HeatingComparison } from "@/components/sections/density/HeatingComparison";
 import { AgingTimeline } from "@/components/sections/density/AgingTimeline";
 import { ImageShowcase } from "@/components/sections/density/ImageShowcase";
+import { VideoBackdrop } from "@/components/sections/density/VideoBackdrop";
 import { CTABanner } from "@/components/sections/CTABanner";
 
 export default async function DensityPage({
@@ -23,23 +24,28 @@ export default async function DensityPage({
 
   return (
     <>
-      <DensityHero />
+      {/* Top video backdrop — hero only */}
+      <VideoBackdrop>
+        <DensityHero />
+      </VideoBackdrop>
+
+      {/* Stats sit on regular cream/gold (no video) */}
       <DensityStats />
 
-      {/* DENSITY 技術特點 — 4-pillar features (real artwork) */}
-      <ImageShowcase
-        eyebrow={tFeat("eyebrow")}
-        title={tFeat("title")}
-        src="/images/density/features.jpg"
-        alt="DENSITY 技術特點 — 四大核心科技"
-        variant="cream"
-        maxWidth="max-w-6xl"
-        width={1600}
-        height={900}
-      />
-
-      {/* Six core benefits — interactive tiles */}
-      <DensityBenefits />
+      {/* Bottom video backdrop — features showcase + core benefits (mid-page, no navbar offset) */}
+      <VideoBackdrop dodgeNavbar={false}>
+        <ImageShowcase
+          eyebrow={tFeat("eyebrow")}
+          title={tFeat("title")}
+          src="/images/density/features.jpg"
+          alt="DENSITY 技術特點 — 四大核心科技"
+          variant="transparent"
+          maxWidth="max-w-6xl"
+          width={1600}
+          height={900}
+        />
+        <DensityBenefits />
+      </VideoBackdrop>
 
       {/* Tips: Classic vs High Tip + improvement areas (real artwork) */}
       <ImageShowcase
