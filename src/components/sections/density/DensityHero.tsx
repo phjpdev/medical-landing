@@ -11,13 +11,26 @@ export function DensityHero() {
   const t = useTranslations("density.hero");
 
   return (
-    <section className="relative -mt-16 flex min-h-[100svh] items-center overflow-hidden lg:-mt-20">
-      <div className="absolute inset-0 bg-cream-radial" />
-      <div className="particle-bg absolute inset-0 opacity-50" />
+    <section className="relative -mt-20 flex min-h-[100svh] items-center overflow-hidden lg:-mt-24">
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, #FBF6E3 0%, #F5E6B8 35%, #FAF6EC 70%, #F5EFE0 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-50"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 50% at 70% 40%, rgba(212,175,55,0.30), transparent 70%)",
+        }}
+      />
+      <div className="particle-bg absolute inset-0 opacity-40" />
 
       {/* Decorative gold streaks */}
       <svg
-        className="absolute inset-0 h-full w-full opacity-50"
+        className="absolute inset-0 h-full w-full opacity-40"
         viewBox="0 0 1440 900"
         fill="none"
         preserveAspectRatio="xMidYMid slice"
@@ -26,7 +39,7 @@ export function DensityHero() {
         <defs>
           <linearGradient id="d-streak" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor="#D4AF37" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#D4AF37" stopOpacity="0.4" />
+            <stop offset="0.5" stopColor="#B8941F" stopOpacity="0.5" />
             <stop offset="1" stopColor="#D4AF37" stopOpacity="0" />
           </linearGradient>
         </defs>
@@ -34,7 +47,7 @@ export function DensityHero() {
         <path d="M-100 760 C 480 600, 980 820, 1540 660" stroke="url(#d-streak)" strokeWidth="1" />
       </svg>
 
-      <div className="container-x relative z-10 grid items-center gap-12 py-24 lg:grid-cols-[1fr_1fr] lg:py-32">
+      <div className="container-x relative z-10 grid items-center gap-12 pb-20 pt-32 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:pb-28 lg:pt-40">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,10 +59,10 @@ export function DensityHero() {
             {t("eyebrow")}
           </span>
 
-          <h1 className="font-serif text-[clamp(3rem,8vw,6rem)] font-medium leading-[0.95] tracking-tight">
+          <h1 className="font-serif text-[clamp(3rem,7vw,5.75rem)] font-medium leading-[0.95] tracking-tight">
             <span className="gold-text">{t("title")}</span>
             <br />
-            <span className="text-charcoal/85 text-[0.7em]">{t("subtitle")}</span>
+            <span className="text-charcoal/85 text-[0.65em]">{t("subtitle")}</span>
           </h1>
 
           <GoldDivider className="!justify-start" />
@@ -67,22 +80,26 @@ export function DensityHero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1, delay: 0.2 }}
-          className="relative mx-auto aspect-[3/4] w-full max-w-md"
+          className="relative mx-auto w-full max-w-md"
         >
-          <div className="absolute inset-0 -z-10 rounded-full bg-gold-radial" />
-          <div className="relative h-full w-full overflow-hidden rounded-3xl gold-border shadow-gold-lg">
+          <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gold-radial blur-2xl" />
+          <div className="relative overflow-hidden rounded-3xl gold-border bg-white shadow-gold-lg">
             <Image
-              src="/images/density/04-spokesperson.jpg"
-              alt="DENSITY Brand Ambassador"
-              fill
+              src="/images/density/spokesperson.png"
+              alt="DENSITY · Lee Young-Ae"
+              width={1080}
+              height={1350}
               sizes="(max-width: 1024px) 80vw, 45vw"
-              className="object-cover"
+              className="h-auto w-full"
               priority
             />
           </div>
-          <div className="absolute -right-4 -top-4 hidden h-24 w-24 rotate-12 rounded-2xl border border-gold-primary/30 bg-white/40 backdrop-blur lg:block" />
+          <div className="absolute -left-3 -top-3 hidden h-16 w-16 rounded-tl-2xl border-l-2 border-t-2 border-gold-primary lg:block" />
+          <div className="absolute -bottom-3 -right-3 hidden h-16 w-16 rounded-br-2xl border-b-2 border-r-2 border-gold-primary lg:block" />
         </motion.div>
       </div>
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-cream" />
     </section>
   );
 }

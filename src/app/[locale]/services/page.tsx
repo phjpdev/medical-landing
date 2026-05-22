@@ -37,7 +37,7 @@ export default async function ServicesPage({
                 {i === 0 && (
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
-                      src="/images/density/04-spokesperson.jpg"
+                      src="/images/density/spokesperson.png"
                       alt={s.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 33vw"
