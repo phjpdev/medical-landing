@@ -87,7 +87,7 @@ const config: Config = {
         "ink-gradient":
           "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)",
         "cream-radial":
-          "radial-gradient(ellipse at top, #FBF6E3 0%, #FAF6EC 50%, #F5EFE0 100%)",
+          "radial-gradient(ellipse at top, rgba(251,246,227,0.45) 0%, rgba(250,246,236,0.25) 50%, rgba(245,239,224,0.40) 100%)",
       },
       boxShadow: {
         gold: "0 0 40px rgba(212, 175, 55, 0.18)",

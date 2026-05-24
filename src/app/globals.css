@@ -17,12 +17,16 @@
   }
 
   body {
-    @apply bg-cream text-charcoal font-sans;
+    @apply text-charcoal font-sans;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    background-color: #FAF6EC;
     background-image:
-      radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(212, 175, 55, 0.10) 0%, transparent 60%),
-      linear-gradient(180deg, #FBF6E3 0%, #FAF6EC 30%, #F5EFE0 100%);
-    background-attachment: fixed;
+      linear-gradient(180deg, rgba(251, 246, 227, 0.25) 0%, rgba(250, 246, 236, 0.15) 50%, rgba(245, 239, 224, 0.25) 100%),
+      url("/images/bg-gold-waves.png");
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
   }
 
   ::selection {
