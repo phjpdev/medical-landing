@@ -81,25 +81,27 @@
   }
 
   .btn-gold {
-    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3 text-sm font-medium tracking-wide text-cream transition-all duration-300;
-    background: linear-gradient(135deg, #8a6f17 0%, #6b5612 50%, #4a3a0b 100%);
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3 text-sm font-medium tracking-wide text-gold-light transition-all duration-300;
+    background: linear-gradient(135deg, #4a3a0b 0%, #2a200a 45%, #15100a 100%);
     background-size: 200% 200%;
-    border: 1px solid rgba(245, 230, 184, 0.45);
+    border: 1px solid rgba(212, 175, 55, 0.55);
     box-shadow:
-      0 10px 30px -10px rgba(74, 58, 11, 0.55),
-      inset 0 1px 0 rgba(245, 230, 184, 0.35),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.25);
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+      0 12px 32px -10px rgba(0, 0, 0, 0.65),
+      inset 0 1px 0 rgba(245, 230, 184, 0.28),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
   }
 
   .btn-gold:hover {
     background-position: 100% 100%;
     transform: translateY(-1px);
-    border-color: rgba(245, 230, 184, 0.7);
+    border-color: rgba(245, 230, 184, 0.8);
+    color: #FBF6E3;
     box-shadow:
-      0 18px 42px -12px rgba(74, 58, 11, 0.65),
-      inset 0 1px 0 rgba(245, 230, 184, 0.5),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+      0 20px 45px -12px rgba(0, 0, 0, 0.75),
+      inset 0 1px 0 rgba(245, 230, 184, 0.45),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(212, 175, 55, 0.35);
   }
 
   .btn-gold::after {

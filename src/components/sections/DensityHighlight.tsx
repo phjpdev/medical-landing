@@ -15,7 +15,7 @@ export function DensityHighlight() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, #FAF6EC 0%, #F5E6B8 50%, #FAF6EC 100%)",
+            "linear-gradient(180deg, rgba(250,246,236,0.50) 0%, rgba(245,230,184,0.40) 50%, rgba(250,246,236,0.50) 100%)",
         }}
       />
       <div

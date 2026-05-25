@@ -46,7 +46,7 @@ export function StatsBand() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, #F5EFE0 0%, #FBF6E3 100%)",
+            "linear-gradient(180deg, rgba(245,239,224,0.55) 0%, rgba(251,246,227,0.50) 100%)",
         }}
       />
       <div className="particle-bg absolute inset-0 opacity-40" />

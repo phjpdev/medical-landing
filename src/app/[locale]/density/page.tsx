@@ -73,8 +73,10 @@ export default async function DensityPage({
         height={1200}
       />
 
-      {/* Handle anatomy — interactive callouts + real image */}
-      <HandleAnatomy />
+      {/* Handle anatomy — interactive callouts + real image, on a video backdrop */}
+      <VideoBackdrop dodgeNavbar={false}>
+        <HandleAnatomy />
+      </VideoBackdrop>
 
       {/* Heating comparison — bespoke diagram */}
       <HeatingComparison />

@@ -2,16 +2,22 @@ import { ReactNode } from "react";
 
 // Wraps any number of sections in a continuous video background.
 //
+// Uses two separate `<video>` elements so mobile and desktop can play different
+// clips at their native aspect ratios — mobile gets a portrait-friendly clip,
+// desktop keeps the wide hero clip. Only one is visible at a time via Tailwind.
+//
 // When `dodgeNavbar` is true (default, for top-of-page use), the video starts
 // below the navbar height so it doesn't bleed into the fixed nav. When false
 // (mid-page use), the video fills the wrapper edge-to-edge.
 export function VideoBackdrop({
   children,
-  src = "/treeelink.mp4",
+  mobileSrc = "/0525.mp4",
+  desktopSrc = "/treeelink.mp4",
   dodgeNavbar = true,
 }: {
   children: ReactNode;
-  src?: string;
+  mobileSrc?: string;
+  desktopSrc?: string;
   dodgeNavbar?: boolean;
 }) {
   const topClasses = dodgeNavbar ? "top-20 lg:top-24" : "top-0";
@@ -26,9 +32,9 @@ export function VideoBackdrop({
         <div className="absolute inset-x-0 top-0 z-0 h-20 bg-cream lg:h-24" />
       )}
 
-      {/* Background video */}
+      {/* Mobile video */}
       <video
-        className={`absolute inset-x-0 bottom-0 z-0 w-full object-cover ${topClasses} ${heightClasses}`}
+        className={`absolute inset-x-0 bottom-0 z-0 w-full object-cover lg:hidden ${topClasses} ${heightClasses}`}
         autoPlay
         loop
         muted
@@ -36,7 +42,20 @@ export function VideoBackdrop({
         preload="auto"
         aria-hidden
       >
-        <source src={src} type="video/mp4" />
+        <source src={mobileSrc} type="video/mp4" />
+      </video>
+
+      {/* Desktop video */}
+      <video
+        className={`absolute inset-x-0 bottom-0 z-0 hidden w-full object-cover lg:block ${topClasses} ${heightClasses}`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden
+      >
+        <source src={desktopSrc} type="video/mp4" />
       </video>
 
       {/* Cream/gold tint — lighter on mobile, heavier on desktop for legibility */}

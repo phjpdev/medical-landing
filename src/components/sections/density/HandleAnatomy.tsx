@@ -10,20 +10,6 @@ export function HandleAnatomy() {
 
   return (
     <section className="relative overflow-hidden py-24">
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, #FAF6EC 0%, #F5E6B8 50%, #FAF6EC 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(212,175,55,0.22), transparent 70%)",
-        }}
-      />
       <div className="container-x relative">
         <SectionEyebrow
           eyebrow="HANDPIECE"
