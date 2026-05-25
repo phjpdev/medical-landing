@@ -35,12 +35,12 @@ export function Navbar() {
           <Image
             src="/images/logo.png"
             alt="IM Infinity Medical Limited"
-            width={120}
-            height={120}
+            width={240}
+            height={240}
             priority
             className={cn(
-              "transition-all duration-500",
-              scrolled ? "h-12 w-auto lg:h-14" : "h-14 w-auto lg:h-16",
+              "w-auto transition-all duration-500 drop-shadow-[0_2px_6px_rgba(184,148,31,0.25)]",
+              scrolled ? "h-16 lg:h-20" : "h-20 lg:h-24",
             )}
           />
         </Link>
