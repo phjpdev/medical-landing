@@ -2,11 +2,17 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 // Filesystem-backed content store. Uses two locations on disk:
-//   - data/content.json — text edits + photo URL mapping (NOT under /public)
-//   - public/uploads/photos/{key}.jpg — uploaded images, served by Next.js
+//   - data/content.json — text edits + photo URL mapping
+//   - data/uploads/photos/{key}.jpg — uploaded images
 //
-// Both are created on first access. On Hostinger VPS the Node process is
-// long-lived so these survive between requests / restarts.
+// IMPORTANT: uploads live OUTSIDE `public/` because Next.js's static asset
+// pipeline only serves files that existed at build time (especially in
+// standalone / `next start` deployments on a VPS). Instead, uploaded files
+// are streamed by the `/api/uploads/[filename]` route handler, which reads
+// from disk on each request — so files added at runtime work immediately.
+//
+// On Hostinger VPS the Node process is long-lived so these dirs survive
+// between requests / restarts.
 
 export type ContentShape = {
   version: 1;
@@ -17,8 +23,9 @@ export type ContentShape = {
 const ROOT = process.cwd();
 export const DATA_DIR = path.join(ROOT, "data");
 export const CONTENT_FILE = path.join(DATA_DIR, "content.json");
-export const UPLOADS_DIR = path.join(ROOT, "public", "uploads", "photos");
-export const UPLOADS_PUBLIC_PATH = "/uploads/photos";
+export const UPLOADS_DIR = path.join(DATA_DIR, "uploads", "photos");
+// URL prefix served by the /api/uploads/[filename] route handler
+export const UPLOADS_PUBLIC_PATH = "/api/uploads";
 
 const EMPTY: ContentShape = { version: 1, text: {}, photos: {} };
 
