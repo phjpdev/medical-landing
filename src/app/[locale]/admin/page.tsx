@@ -1,50 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Lock, LogOut, ShieldCheck, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "@/i18n/routing";
 import { GoldDivider } from "@/components/visual/GoldDivider";
-import {
-  isAdminLoggedIn,
-  setAdminSession,
-  validateCredentials,
-  useIsAdmin,
-} from "@/lib/admin";
+import { useContentStore } from "@/components/providers/ContentProvider";
 
 export default function AdminPage() {
-  const isAdmin = useIsAdmin();
-  const [hydrated, setHydrated] = useState(false);
+  const { isAdmin, login, logout } = useContentStore();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => setHydrated(true), []);
-
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateCredentials(username, password)) {
-      setAdminSession(true);
-      setError(null);
+    setBusy(true);
+    setError(null);
+    const result = await login(username, password);
+    setBusy(false);
+    if (result.ok) {
       setUsername("");
       setPassword("");
     } else {
-      setError("Incorrect username or password.");
+      setError(result.error ?? "Login failed.");
     }
   };
-
-  const onLogout = () => {
-    setAdminSession(false);
-  };
-
-  if (!hydrated) {
-    return (
-      <section className="container-narrow flex min-h-[60vh] items-center justify-center py-24">
-        <div className="text-sm text-charcoal/50">Loading…</div>
-      </section>
-    );
-  }
 
   return (
     <section className="container-narrow flex min-h-[70vh] items-center justify-center py-24">
@@ -60,7 +43,7 @@ export default function AdminPage() {
             <GoldDivider />
             <p className="text-sm leading-relaxed text-charcoal/70">
               {isAdmin
-                ? "You are signed in. Editable photos and text on the site are now editable in place."
+                ? "You are signed in. Photos and text on the site are now editable in place — and your changes are saved on the server so every visitor sees them."
                 : "Sign in to edit testimonials and case photos."}
             </p>
           </div>
@@ -81,15 +64,15 @@ export default function AdminPage() {
                     </Link>
                     ).
                   </li>
-                  <li>Hover a photo placeholder and click to upload a new image.</li>
-                  <li>Click on any text block to edit in place. Press Tab or click away to save.</li>
-                  <li>Changes are saved locally in this browser.</li>
+                  <li>Hover a photo and click to upload a new image.</li>
+                  <li>Click on any text block to edit. Tab or click away to save.</li>
+                  <li>Changes are saved to the server and visible to all visitors.</li>
                 </ul>
               </div>
 
               <button
                 type="button"
-                onClick={onLogout}
+                onClick={() => void logout()}
                 className="btn-gold mt-2 inline-flex w-full justify-center gap-2"
               >
                 <LogOut className="h-4 w-4" />
@@ -125,8 +108,12 @@ export default function AdminPage() {
                   <span>{error}</span>
                 </div>
               )}
-              <button type="submit" className="btn-gold mt-2 w-full justify-center">
-                Sign in
+              <button
+                type="submit"
+                disabled={busy}
+                className="btn-gold mt-2 w-full justify-center"
+              >
+                {busy ? "Signing in…" : "Sign in"}
               </button>
             </form>
           )}

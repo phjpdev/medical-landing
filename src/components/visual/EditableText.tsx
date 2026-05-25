@@ -10,16 +10,15 @@ import {
 } from "react";
 import { Pencil } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useIsAdmin } from "@/lib/admin";
+import { useContentStore } from "@/components/providers/ContentProvider";
 
 type Tag = "p" | "h1" | "h2" | "h3" | "h4" | "span" | "div" | "blockquote";
 
-// Inline-editable text.
+// Inline-editable text. Reads from the shared content store; on admin blur it
+// POSTs the new value to /api/admin/text which persists to data/content.json.
 //
-// • Admins: contentEditable, click to type, saves on blur to localStorage.
-// • Visitors: read-only — same default/persisted text, no edit affordance.
-//
-// `multiline` controls whether Enter creates a newline (true) or blurs (false).
+// • Admins: contentEditable, saves on blur.
+// • Visitors: read-only — same value, no edit affordance.
 export function EditableText({
   storageKey,
   defaultValue,
@@ -33,29 +32,22 @@ export function EditableText({
   className?: string;
   multiline?: boolean;
 }) {
-  const isAdmin = useIsAdmin();
-  const [value, setValue] = useState(defaultValue);
+  const { content, isAdmin, saveText } = useContentStore();
+  const stored = content.text[storageKey];
+  const value = stored !== undefined ? stored : defaultValue;
   const [hydrated, setHydrated] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(storageKey);
-      if (saved !== null) setValue(saved);
-    } catch {}
-    setHydrated(true);
-  }, [storageKey]);
+  useEffect(() => setHydrated(true), []);
 
-  const persist = (next: string) => {
-    setValue(next);
-    try {
-      localStorage.setItem(storageKey, next);
-    } catch {}
-  };
-
-  const onBlur = (e: FocusEvent<HTMLElement>) => {
+  const onBlur = async (e: FocusEvent<HTMLElement>) => {
     const text = e.currentTarget.textContent ?? "";
-    persist(text);
+    if (text === value) return;
+    try {
+      await saveText(storageKey, text);
+    } catch (err) {
+      console.error("[EditableText] save failed", err);
+    }
   };
 
   const onKeyDown = (e: KeyboardEvent<HTMLElement>) => {
@@ -88,6 +80,9 @@ export function EditableText({
         className,
       ),
       "data-editable": "",
+      // contentEditable re-renders are tricky — `key={value}` would lose caret
+      // position. Instead, only render the children once via dangerouslySet…
+      // but stored values are short, so this simpler approach is fine.
     },
     value,
   );

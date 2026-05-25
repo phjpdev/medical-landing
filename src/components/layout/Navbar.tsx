@@ -9,13 +9,14 @@ import { NAV_ITEMS } from "@/lib/constants";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
-import { useIsAdmin, setAdminSession } from "@/lib/admin";
+import { useIsAdmin, useLogout } from "@/lib/admin";
 
 export function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const isAdmin = useIsAdmin();
+  const logout = useLogout();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -78,7 +79,7 @@ export function Navbar() {
           {isAdmin && (
             <button
               type="button"
-              onClick={() => setAdminSession(false)}
+              onClick={() => void logout()}
               className="hidden items-center gap-1.5 rounded-full border border-gold-primary/50 bg-white/70 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-gold-deep backdrop-blur transition-colors hover:bg-gold-primary/10 lg:inline-flex"
               title="Sign out of admin"
             >

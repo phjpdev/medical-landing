@@ -29,8 +29,6 @@ export function Testimonials() {
                       alt={it.author}
                       className="h-24 w-24 ring-2 ring-gold-primary/40"
                       rounded="rounded-full"
-                      maxWidth={400}
-                      maxHeight={400}
                     />
                   </div>
                 </div>

@@ -35,8 +35,6 @@ export default function CasesPage() {
                 alt={c.label}
                 className="aspect-[3/4]"
                 rounded="rounded-none"
-                maxWidth={900}
-                maxHeight={1200}
               />
               <div className="px-5 py-4">
                 <EditableText

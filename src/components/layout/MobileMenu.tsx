@@ -8,12 +8,13 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from "@/com
 import { NAV_ITEMS } from "@/lib/constants";
 import { GoldDivider } from "@/components/visual/GoldDivider";
 import { LocaleSwitcher } from "./LocaleSwitcher";
-import { useIsAdmin, setAdminSession } from "@/lib/admin";
+import { useIsAdmin, useLogout } from "@/lib/admin";
 
 export function MobileMenu({ variant = "light" }: { variant?: "light" | "dark" }) {
   const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
   const isAdmin = useIsAdmin();
+  const logout = useLogout();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -55,8 +56,8 @@ export function MobileMenu({ variant = "light" }: { variant?: "light" | "dark" }
               </span>
               <button
                 type="button"
-                onClick={() => {
-                  setAdminSession(false);
+                onClick={async () => {
+                  await logout();
                   setOpen(false);
                 }}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold-primary/50 bg-white/10 px-4 py-2 text-xs font-medium text-gold-light transition-colors hover:bg-gold-primary/15"
