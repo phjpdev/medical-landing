@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { LogOut, ShieldCheck } from "lucide-react";
+import { LogOut, ShieldCheck, Pencil } from "lucide-react";
 import { Link, usePathname } from "@/i18n/routing";
-import { NAV_ITEMS } from "@/lib/constants";
+import { NAV_ITEMS, EDITABLE_NAV_KEYS } from "@/lib/constants";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
@@ -55,18 +55,27 @@ export function Navbar() {
               item.href === "/"
                 ? pathname === "/"
                 : pathname.startsWith(item.href);
+            const editable = isAdmin && EDITABLE_NAV_KEYS.has(item.key);
             return (
               <Link
                 key={item.key}
                 href={item.href}
                 className={cn(
-                  "relative text-sm tracking-wide transition-colors duration-300",
+                  "relative inline-flex items-center gap-1.5 text-sm tracking-wide transition-colors duration-300",
                   active
                     ? "text-gold-deep"
-                    : "text-charcoal/75 hover:text-gold-deep",
+                    : editable
+                      ? "text-gold-deep"
+                      : "text-charcoal/75 hover:text-gold-deep",
                 )}
+                title={editable ? "Has editable content" : undefined}
               >
                 {t(item.key)}
+                {editable && (
+                  <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gold-gradient text-ink shadow-sm">
+                    <Pencil className="h-2.5 w-2.5" />
+                  </span>
+                )}
                 {active && (
                   <span className="absolute -bottom-1.5 left-1/2 h-px w-6 -translate-x-1/2 bg-gold-primary" />
                 )}

@@ -10,6 +10,10 @@ export const NAV_ITEMS = [
 
 export type NavKey = (typeof NAV_ITEMS)[number]["key"];
 
+// Pages that contain admin-editable content (photos / text).
+// Used by Navbar + MobileMenu to highlight these entries when admin is signed in.
+export const EDITABLE_NAV_KEYS = new Set<NavKey>(["home", "cases"]);
+
 export const CLINIC = {
   whatsapp: "https://wa.me/85200000000",
   instagram: "https://instagram.com",

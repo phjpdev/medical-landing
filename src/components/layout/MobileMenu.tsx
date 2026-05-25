@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Menu, LogOut, ShieldCheck } from "lucide-react";
+import { Menu, LogOut, ShieldCheck, Pencil } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from "@/components/ui/sheet";
-import { NAV_ITEMS } from "@/lib/constants";
+import { NAV_ITEMS, EDITABLE_NAV_KEYS } from "@/lib/constants";
 import { GoldDivider } from "@/components/visual/GoldDivider";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { useIsAdmin, useLogout } from "@/lib/admin";
+import { cn } from "@/lib/utils";
 
 export function MobileMenu({ variant = "light" }: { variant?: "light" | "dark" }) {
   const t = useTranslations("nav");
@@ -34,17 +35,39 @@ export function MobileMenu({ variant = "light" }: { variant?: "light" | "dark" }
           <span className="gold-text">IM</span> Infinity
         </SheetTitle>
         <GoldDivider tone="light" className="my-4 !justify-start" />
+        {isAdmin && (
+          <div className="mb-2 rounded-xl border border-gold-primary/40 bg-gold-primary/10 px-3 py-2 text-[10px] uppercase tracking-[0.22em] text-gold-light">
+            <span className="inline-flex items-center gap-1.5">
+              <Pencil className="h-3 w-3" />
+              Editable pages are highlighted
+            </span>
+          </div>
+        )}
         <nav className="mt-2 flex flex-col gap-1">
-          {NAV_ITEMS.map((item) => (
-            <SheetClose asChild key={item.key}>
-              <Link
-                href={item.href}
-                className="rounded-md px-3 py-3 text-base text-cream transition-colors hover:bg-gold-primary/10 hover:text-gold-light"
-              >
-                {t(item.key)}
-              </Link>
-            </SheetClose>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const editable = isAdmin && EDITABLE_NAV_KEYS.has(item.key);
+            return (
+              <SheetClose asChild key={item.key}>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "flex items-center justify-between rounded-md px-3 py-3 text-base transition-colors",
+                    editable
+                      ? "border border-gold-primary/60 bg-gold-primary/15 text-gold-light shadow-[inset_0_0_0_1px_rgba(245,230,184,0.10)] hover:bg-gold-primary/25"
+                      : "text-cream hover:bg-gold-primary/10 hover:text-gold-light",
+                  )}
+                >
+                  <span>{t(item.key)}</span>
+                  {editable && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-gold-gradient px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-ink">
+                      <Pencil className="h-2.5 w-2.5" />
+                      Edit
+                    </span>
+                  )}
+                </Link>
+              </SheetClose>
+            );
+          })}
         </nav>
 
         <div className="mt-auto flex flex-col items-start gap-4 pt-6">
