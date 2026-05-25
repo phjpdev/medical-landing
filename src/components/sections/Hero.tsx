@@ -28,26 +28,6 @@ export function Hero() {
       />
       <div className="particle-bg absolute inset-0 opacity-50" />
 
-      {/* Decorative gold streaks */}
-      <svg
-        className="absolute inset-0 h-full w-full opacity-50"
-        viewBox="0 0 1440 900"
-        fill="none"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden
-      >
-        <defs>
-          <linearGradient id="streak" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#D4AF37" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#B8941F" stopOpacity="0.5" />
-            <stop offset="1" stopColor="#D4AF37" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <path d="M-100 320 C 420 180, 1000 540, 1540 380" stroke="url(#streak)" strokeWidth="1.5" />
-        <path d="M-100 460 C 360 320, 1100 640, 1540 500" stroke="url(#streak)" strokeWidth="1" />
-        <path d="M-100 200 C 480 80, 980 380, 1540 240" stroke="url(#streak)" strokeWidth="1" />
-      </svg>
-
       <div className="container-x relative z-10 grid items-center gap-12 pb-20 pt-32 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:pb-28 lg:pt-40">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
