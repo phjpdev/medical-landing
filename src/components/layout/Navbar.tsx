@@ -3,16 +3,19 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { LogOut, ShieldCheck } from "lucide-react";
 import { Link, usePathname } from "@/i18n/routing";
 import { NAV_ITEMS } from "@/lib/constants";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
+import { useIsAdmin, setAdminSession } from "@/lib/admin";
 
 export function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const isAdmin = useIsAdmin();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,17 +33,17 @@ export function Navbar() {
           : "bg-cream/30 backdrop-blur-[2px]",
       )}
     >
-      <div className="container-x flex h-20 items-center justify-between gap-6 lg:h-24">
+      <div className="container-x flex h-24 items-center justify-between gap-6 lg:h-28">
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/images/logo.png"
             alt="IM Infinity Medical Limited"
-            width={240}
-            height={240}
+            width={320}
+            height={320}
             priority
             className={cn(
-              "w-auto transition-all duration-500 drop-shadow-[0_2px_6px_rgba(184,148,31,0.25)]",
-              scrolled ? "h-16 lg:h-20" : "h-20 lg:h-24",
+              "w-auto transition-all duration-500 drop-shadow-[0_2px_8px_rgba(184,148,31,0.30)]",
+              scrolled ? "h-20 lg:h-24" : "h-24 lg:h-28",
             )}
           />
         </Link>
@@ -72,6 +75,18 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {isAdmin && (
+            <button
+              type="button"
+              onClick={() => setAdminSession(false)}
+              className="hidden items-center gap-1.5 rounded-full border border-gold-primary/50 bg-white/70 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-gold-deep backdrop-blur transition-colors hover:bg-gold-primary/10 lg:inline-flex"
+              title="Sign out of admin"
+            >
+              <ShieldCheck className="h-3.5 w-3.5" />
+              Admin
+              <LogOut className="h-3.5 w-3.5 opacity-70" />
+            </button>
+          )}
           <LocaleSwitcher variant="light" />
           <Link href="/contact" className="btn-gold hidden text-xs sm:inline-flex">
             {t("book")}

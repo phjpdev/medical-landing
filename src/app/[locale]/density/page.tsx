@@ -6,7 +6,7 @@ import { HandleAnatomy } from "@/components/sections/density/HandleAnatomy";
 import { HeatingComparison } from "@/components/sections/density/HeatingComparison";
 import { AgingTimeline } from "@/components/sections/density/AgingTimeline";
 import { ImageShowcase } from "@/components/sections/density/ImageShowcase";
-import { VideoBackdrop } from "@/components/sections/density/VideoBackdrop";
+import { FixedVideoBackground } from "@/components/sections/density/FixedVideoBackground";
 import { CTABanner } from "@/components/sections/CTABanner";
 
 export default async function DensityPage({
@@ -24,16 +24,13 @@ export default async function DensityPage({
 
   return (
     <>
-      {/* Top video backdrop — hero only */}
-      <VideoBackdrop>
+      {/* One fixed video background covers the entire page — content scrolls over it */}
+      <FixedVideoBackground />
+
+      <div className="relative z-10">
         <DensityHero />
-      </VideoBackdrop>
+        <DensityStats />
 
-      {/* Stats sit on regular cream/gold (no video) */}
-      <DensityStats />
-
-      {/* Bottom video backdrop — features showcase + core benefits (mid-page, no navbar offset) */}
-      <VideoBackdrop dodgeNavbar={false}>
         <ImageShowcase
           eyebrow={tFeat("eyebrow")}
           title={tFeat("title")}
@@ -44,84 +41,73 @@ export default async function DensityPage({
           width={1600}
           height={900}
         />
+
         <DensityBenefits />
-      </VideoBackdrop>
 
-      {/* Tips: Classic vs High Tip + improvement areas (real artwork) */}
-      <ImageShowcase
-        eyebrow="TIP TECHNOLOGY"
-        title={tTips("title")}
-        body={tTips("subtitle")}
-        src="/images/density/tips.png"
-        alt="CLASSIC TIP / HIGH TIP · 改善問題"
-        variant="gold"
-        maxWidth="max-w-3xl"
-        width={1080}
-        height={1500}
-      />
+        <ImageShowcase
+          eyebrow="TIP TECHNOLOGY"
+          title={tTips("title")}
+          body={tTips("subtitle")}
+          src="/images/density/tips.png"
+          alt="CLASSIC TIP / HIGH TIP · 改善問題"
+          variant="transparent"
+          maxWidth="max-w-3xl"
+          width={1080}
+          height={1500}
+        />
 
-      {/* Innovative treatment heads — EYE / FACE / BODY (real artwork) */}
-      <ImageShowcase
-        eyebrow="TREATMENT HEADS"
-        title="創新治療頭技術"
-        body="依照不同部位與深度，三種專屬探頭精準傳遞能量。"
-        src="/images/density/treatment-heads.jpg"
-        alt="EYE / FACE / BODY 治療頭"
-        variant="cream"
-        maxWidth="max-w-6xl"
-        width={1600}
-        height={1200}
-      />
+        <ImageShowcase
+          eyebrow="TREATMENT HEADS"
+          title="創新治療頭技術"
+          body="依照不同部位與深度，三種專屬探頭精準傳遞能量。"
+          src="/images/density/treatment-heads.jpg"
+          alt="EYE / FACE / BODY 治療頭"
+          variant="transparent"
+          maxWidth="max-w-6xl"
+          width={1600}
+          height={1200}
+        />
 
-      {/* Handle anatomy — interactive callouts + real image, on a video backdrop */}
-      <VideoBackdrop dodgeNavbar={false}>
         <HandleAnatomy />
-      </VideoBackdrop>
+        <HeatingComparison />
+        <AgingTimeline />
 
-      {/* Heating comparison — bespoke diagram */}
-      <HeatingComparison />
+        <ImageShowcase
+          eyebrow="DENSITY vs TRADITIONAL"
+          title="專利黑科技與一般單極射頻"
+          src="/images/density/density-vs-traditional.png"
+          alt="DENSITY vs 一般單極射頻"
+          variant="transparent"
+          maxWidth="max-w-3xl"
+          width={1080}
+          height={1300}
+        />
 
-      {/* Age-reversal timeline + temperature scale */}
-      <AgingTimeline />
+        <ImageShowcase
+          eyebrow="HOW WE COMPARE"
+          title={tCmp("title")}
+          body={tCmp("subtitle")}
+          src="/images/density/comparison.png"
+          alt="DENSITY · Thermage · Ultherapy 比較"
+          variant="transparent"
+          maxWidth="max-w-3xl"
+          width={1080}
+          height={1300}
+        />
 
-      {/* DENSITY vs traditional monopolar — detailed comparison artwork */}
-      <ImageShowcase
-        eyebrow="DENSITY vs TRADITIONAL"
-        title="專利黑科技與一般單極射頻"
-        src="/images/density/density-vs-traditional.png"
-        alt="DENSITY vs 一般單極射頻"
-        variant="gold"
-        maxWidth="max-w-3xl"
-        width={1080}
-        height={1300}
-      />
+        <ImageShowcase
+          eyebrow="AFTERCARE"
+          title={tAft("title")}
+          src="/images/density/aftercare.jpg"
+          alt="治療後注意事項"
+          variant="transparent"
+          maxWidth="max-w-5xl"
+          width={1600}
+          height={1500}
+        />
 
-      {/* DENSITY vs Thermage vs Ultherapy (real artwork) */}
-      <ImageShowcase
-        eyebrow="HOW WE COMPARE"
-        title={tCmp("title")}
-        body={tCmp("subtitle")}
-        src="/images/density/comparison.png"
-        alt="DENSITY · Thermage · Ultherapy 比較"
-        variant="cream"
-        maxWidth="max-w-3xl"
-        width={1080}
-        height={1300}
-      />
-
-      {/* Aftercare (real artwork) */}
-      <ImageShowcase
-        eyebrow="AFTERCARE"
-        title={tAft("title")}
-        src="/images/density/aftercare.jpg"
-        alt="治療後注意事項"
-        variant="gold"
-        maxWidth="max-w-5xl"
-        width={1600}
-        height={1500}
-      />
-
-      <CTABanner title={tCta("title")} body={tCta("body")} cta={tCta("cta")} />
+        <CTABanner title={tCta("title")} body={tCta("body")} cta={tCta("cta")} />
+      </div>
     </>
   );
 }

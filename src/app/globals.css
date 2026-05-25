@@ -20,13 +20,23 @@
     @apply text-charcoal font-sans;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     background-color: #FAF6EC;
+    /* Mobile: portrait gold-waves photo */
     background-image:
       linear-gradient(180deg, rgba(251, 246, 227, 0.25) 0%, rgba(250, 246, 236, 0.15) 50%, rgba(245, 239, 224, 0.25) 100%),
-      url("/images/bg-gold-waves.png");
+      url("/images/bg-gold-waves-mobile.jpg");
     background-size: cover, cover;
     background-position: center, center;
     background-repeat: no-repeat, no-repeat;
     background-attachment: fixed, fixed;
+  }
+
+  /* Desktop: landscape gold-waves illustration */
+  @media (min-width: 1024px) {
+    body {
+      background-image:
+        linear-gradient(180deg, rgba(251, 246, 227, 0.25) 0%, rgba(250, 246, 236, 0.15) 50%, rgba(245, 239, 224, 0.25) 100%),
+        url("/images/bg-gold-waves.png");
+    }
   }
 
   ::selection {
@@ -82,26 +92,26 @@
 
   .btn-gold {
     @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-7 py-3 text-sm font-medium tracking-wide text-gold-light transition-all duration-300;
-    background: linear-gradient(135deg, #4a3a0b 0%, #2a200a 45%, #15100a 100%);
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 45%, #0d0d0d 100%);
     background-size: 200% 200%;
     border: 1px solid rgba(212, 175, 55, 0.55);
     box-shadow:
-      0 12px 32px -10px rgba(0, 0, 0, 0.65),
-      inset 0 1px 0 rgba(245, 230, 184, 0.28),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+      0 12px 32px -10px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(245, 230, 184, 0.18),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5);
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
   }
 
   .btn-gold:hover {
     background-position: 100% 100%;
     transform: translateY(-1px);
-    border-color: rgba(245, 230, 184, 0.8);
+    border-color: rgba(245, 230, 184, 0.85);
     color: #FBF6E3;
     box-shadow:
-      0 20px 45px -12px rgba(0, 0, 0, 0.75),
-      inset 0 1px 0 rgba(245, 230, 184, 0.45),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-      0 0 0 1px rgba(212, 175, 55, 0.35);
+      0 20px 45px -12px rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 rgba(245, 230, 184, 0.35),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(212, 175, 55, 0.40);
   }
 
   .btn-gold::after {

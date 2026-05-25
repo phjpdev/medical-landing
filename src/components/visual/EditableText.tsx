@@ -1,13 +1,23 @@
 "use client";
 
-import { useEffect, useRef, useState, FocusEvent, KeyboardEvent, createElement } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  FocusEvent,
+  KeyboardEvent,
+  createElement,
+} from "react";
 import { Pencil } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useIsAdmin } from "@/lib/admin";
 
 type Tag = "p" | "h1" | "h2" | "h3" | "h4" | "span" | "div" | "blockquote";
 
-// Inline-editable text. Reads default from props; if the user edits, the new
-// value is saved under `storageKey` in localStorage and restored on reload.
+// Inline-editable text.
+//
+// • Admins: contentEditable, click to type, saves on blur to localStorage.
+// • Visitors: read-only — same default/persisted text, no edit affordance.
 //
 // `multiline` controls whether Enter creates a newline (true) or blurs (false).
 export function EditableText({
@@ -23,6 +33,7 @@ export function EditableText({
   className?: string;
   multiline?: boolean;
 }) {
+  const isAdmin = useIsAdmin();
   const [value, setValue] = useState(defaultValue);
   const [hydrated, setHydrated] = useState(false);
   const ref = useRef<HTMLElement>(null);
@@ -57,8 +68,12 @@ export function EditableText({
     }
   };
 
-  // suppressContentEditableWarning + only enable contentEditable after
-  // hydration to avoid SSR/CSR mismatch
+  // Visitor (read-only): plain element, no interactivity
+  if (!isAdmin) {
+    return createElement(as, { className }, value);
+  }
+
+  // Admin: editable
   return createElement(
     as,
     {
@@ -69,7 +84,7 @@ export function EditableText({
       onBlur,
       onKeyDown,
       className: cn(
-        "relative -mx-1 rounded px-1 outline-none transition focus:bg-gold-light/30 focus:ring-2 focus:ring-gold-primary/40 cursor-text",
+        "relative -mx-1 cursor-text rounded px-1 outline-none transition focus:bg-gold-light/30 focus:ring-2 focus:ring-gold-primary/40",
         className,
       ),
       "data-editable": "",

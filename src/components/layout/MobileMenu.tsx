@@ -2,16 +2,18 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Menu } from "lucide-react";
+import { Menu, LogOut, ShieldCheck } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from "@/components/ui/sheet";
 import { NAV_ITEMS } from "@/lib/constants";
 import { GoldDivider } from "@/components/visual/GoldDivider";
 import { LocaleSwitcher } from "./LocaleSwitcher";
+import { useIsAdmin, setAdminSession } from "@/lib/admin";
 
 export function MobileMenu({ variant = "light" }: { variant?: "light" | "dark" }) {
   const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
+  const isAdmin = useIsAdmin();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -45,6 +47,25 @@ export function MobileMenu({ variant = "light" }: { variant?: "light" | "dark" }
         </nav>
 
         <div className="mt-auto flex flex-col items-start gap-4 pt-6">
+          {isAdmin && (
+            <div className="flex w-full flex-col gap-2 rounded-2xl border border-gold-primary/40 bg-white/[0.04] p-3">
+              <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] text-gold-light">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                Signed in as admin
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  setAdminSession(false);
+                  setOpen(false);
+                }}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gold-primary/50 bg-white/10 px-4 py-2 text-xs font-medium text-gold-light transition-colors hover:bg-gold-primary/15"
+              >
+                <LogOut className="h-3.5 w-3.5" />
+                Sign out
+              </button>
+            </div>
+          )}
           <LocaleSwitcher variant="dark" />
           <SheetClose asChild>
             <Link href="/contact" className="btn-gold w-full justify-center">

@@ -11,7 +11,7 @@ export function Hero() {
   const t = useTranslations("home.hero");
 
   return (
-    <section className="relative -mt-20 flex min-h-[100svh] items-center overflow-hidden lg:-mt-24">
+    <section className="relative -mt-24 flex min-h-[100svh] items-center overflow-hidden lg:-mt-28">
       <div
         className="absolute inset-0"
         style={{

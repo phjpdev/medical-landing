@@ -4,12 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import { Camera, ImageOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { resizeImageToDataUrl } from "@/lib/resizeImage";
+import { useIsAdmin } from "@/lib/admin";
 
-// Click-to-upload image with localStorage persistence. Resizes the upload
-// before storage to keep localStorage usage reasonable (~5–10 MB cap).
+// Click-to-upload image with localStorage persistence.
 //
-// Multiple <EditableImage> with the same `storageKey` stay in sync because
-// they all read from / write to the same key.
+// • Admins: full upload flow (click → file picker → resize → save).
+// • Visitors: read-only. Sees the photo if one has been saved, else a quiet
+//   empty placeholder (no upload prompt).
+//
+// Resizes the upload before storage to keep localStorage usage reasonable
+// (~5–10 MB cap). Multiple <EditableImage> with the same `storageKey` stay in
+// sync because they all read from / write to the same key.
 export function EditableImage({
   storageKey,
   alt,
@@ -25,6 +30,7 @@ export function EditableImage({
   maxWidth?: number;
   maxHeight?: number;
 }) {
+  const isAdmin = useIsAdmin();
   const [src, setSrc] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -52,6 +58,30 @@ export function EditableImage({
     }
   };
 
+  // Visitor (read-only): plain div, no interactivity
+  if (!isAdmin) {
+    return (
+      <div
+        className={cn(
+          "relative block w-full overflow-hidden bg-white/60 gold-border",
+          rounded,
+          className,
+        )}
+        aria-label={alt}
+      >
+        {src ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={src} alt={alt} className="h-full w-full object-cover" />
+        ) : (
+          <div className="grid h-full w-full place-items-center text-charcoal/25">
+            <ImageOff className="h-8 w-8" />
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Admin: full upload UI
   return (
     <button
       type="button"
