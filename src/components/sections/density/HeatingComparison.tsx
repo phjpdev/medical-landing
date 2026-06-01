@@ -49,7 +49,7 @@ export function HeatingComparison() {
 
   return (
     <section className="container-x py-24">
-      <SectionEyebrow eyebrow="HEATING TECHNOLOGY" title={t("title")} />
+      <SectionEyebrow eyebrow="HEATING TECHNOLOGY" title={t("title")} withBackground />
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
         <RevealOnScroll>
@@ -67,7 +67,7 @@ export function HeatingComparison() {
         </RevealOnScroll>
 
         <RevealOnScroll index={1}>
-          <div className="rounded-3xl border border-charcoal/15 bg-white/70 p-6 backdrop-blur">
+          <div className="rounded-3xl border border-charcoal/15 bg-white/95 p-6 shadow-soft">
             <HeatingDiagram variant="traditional" />
             <div className="mt-5">
               <h3 className="font-serif text-xl font-medium text-charcoal">

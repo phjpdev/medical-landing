@@ -15,6 +15,7 @@ export function HandleAnatomy() {
           eyebrow="HANDPIECE"
           title={t("title")}
           body={t("subtitle")}
+          withBackground
         />
 
         <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
@@ -35,7 +36,7 @@ export function HandleAnatomy() {
           <div className="flex flex-col gap-4">
             {controls.map((c, i) => (
               <RevealOnScroll key={c.label} index={i}>
-                <div className="flex items-start gap-4 rounded-2xl gold-border bg-white/85 p-5 backdrop-blur shadow-soft">
+                <div className="flex items-start gap-4 rounded-2xl gold-border bg-white/95 p-5 shadow-soft">
                   <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gold-gradient font-serif text-sm font-semibold text-ink shadow-sm">
                     {i + 1}
                   </span>
@@ -49,14 +50,12 @@ export function HandleAnatomy() {
           </div>
         </div>
 
-        <div className="mt-80 lg:mt-60">
-          <h3 className="text-center font-serif text-2xl font-medium text-charcoal">
-            {t("tipsTitle")}
-          </h3>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-24 lg:mt-28">
+          <SectionEyebrow title={t("tipsTitle")} withBackground className="max-w-xl" />
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
             {tipList.map((tp, i) => (
               <RevealOnScroll key={tp.name} index={i}>
-                <div className="rounded-2xl gold-border bg-white/85 p-6 text-center backdrop-blur shadow-soft transition-all hover:shadow-gold">
+                <div className="rounded-2xl gold-border bg-white/95 p-6 text-center shadow-soft transition-shadow hover:shadow-gold">
                   <div className="font-serif text-xl text-gold-deep">{tp.name}</div>
                   <div className="mt-3 mx-auto h-px w-12 bg-gold-primary/50" />
                   <p className="mt-3 text-sm leading-relaxed text-charcoal/75">{tp.body}</p>

@@ -18,7 +18,7 @@ function TimelineRow({
 }) {
   const isHigh = variant === "high";
   return (
-    <div className="relative overflow-hidden rounded-3xl gold-border bg-white/90 p-8 shadow-soft backdrop-blur-sm">
+    <div className="relative overflow-hidden rounded-3xl gold-border bg-white/95 p-8 shadow-soft">
       {/* Subtle gold halo on the High Tip variant so it still reads as the premium one */}
       {isHigh && (
         <div
@@ -75,7 +75,7 @@ export function AgingTimeline() {
 
   return (
     <section className="container-x py-24">
-      <SectionEyebrow eyebrow="AGE-REVERSAL TIMELINE" title={t("title")} />
+      <SectionEyebrow eyebrow="AGE-REVERSAL TIMELINE" title={t("title")} withBackground />
 
       <div className="mt-12 flex flex-col gap-8">
         <RevealOnScroll>

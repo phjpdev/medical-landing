@@ -15,20 +15,33 @@ export function SectionEyebrow({
   body?: string;
   align?: "center" | "left";
   tone?: "light" | "dark";
+  /** Readable card on busy / video backgrounds */
   withBackground?: boolean;
   className?: string;
 }) {
-  const colorTitle = tone === "dark" ? "text-cream" : "text-charcoal";
-  const colorBody = tone === "dark" ? "text-cream/70" : "text-charcoal/70";
+  const colorTitle = withBackground
+    ? "text-charcoal"
+    : tone === "dark"
+      ? "text-cream"
+      : "text-charcoal";
+  const colorBody = withBackground
+    ? "text-charcoal/80"
+    : tone === "dark"
+      ? "text-cream/70"
+      : "text-charcoal/70";
   const dividerTone = tone === "dark" ? "light" : "primary";
+  const showDivider = Boolean(title) && (Boolean(eyebrow) || Boolean(body));
 
   return (
     <div
       className={cn(
         "flex flex-col gap-4",
         align === "center" ? "items-center text-center" : "items-start text-left",
-        withBackground &&
-          "rounded-2xl gold-border bg-white/85 px-6 py-5 shadow-soft backdrop-blur-sm sm:px-8 sm:py-6",
+        withBackground && [
+          "mx-auto w-full max-w-3xl rounded-3xl gold-border",
+          "bg-white/[0.97] px-6 py-7 shadow-soft ring-1 ring-gold-primary/10",
+          "sm:px-10 sm:py-8",
+        ],
         className,
       )}
     >
@@ -36,20 +49,27 @@ export function SectionEyebrow({
         <span
           className={cn(
             "eyebrow",
-            tone === "dark" ? "text-gold-light" : "text-gold-deep",
+            withBackground || tone === "light"
+              ? "text-gold-deep"
+              : "text-gold-light",
           )}
         >
           {eyebrow}
         </span>
       )}
       {title && (
-        <h2 className={cn("font-serif text-3xl sm:text-4xl lg:text-5xl font-medium leading-[1.1]", colorTitle)}>
+        <h2
+          className={cn(
+            "font-serif text-3xl font-medium leading-[1.15] sm:text-4xl lg:text-5xl",
+            colorTitle,
+          )}
+        >
           {title}
         </h2>
       )}
-      <GoldDivider tone={dividerTone} className="my-1" />
+      {showDivider && <GoldDivider tone={dividerTone} className="my-0.5" />}
       {body && (
-        <p className={cn("max-w-2xl text-base sm:text-lg leading-relaxed", colorBody)}>
+        <p className={cn("max-w-2xl text-base leading-relaxed sm:text-lg", colorBody)}>
           {body}
         </p>
       )}
