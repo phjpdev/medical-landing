@@ -10,9 +10,12 @@ import {
   ReactNode,
 } from "react";
 
+import type { CasePost } from "@/lib/contentStore";
+
 export type Content = {
   text: Record<string, string>;
   photos: Record<string, string>;
+  casePosts: CasePost[];
 };
 
 type ContentContextValue = {
@@ -21,11 +24,13 @@ type ContentContextValue = {
   refresh: () => Promise<void>;
   saveText: (key: string, value: string) => Promise<void>;
   uploadPhoto: (key: string, file: File) => Promise<void>;
+  publishCasePost: (file: File, caption: string) => Promise<void>;
+  deleteCasePost: (id: string) => Promise<void>;
   login: (username: string, password: string) => Promise<{ ok: boolean; error?: string }>;
   logout: () => Promise<void>;
 };
 
-const EMPTY: Content = { text: {}, photos: {} };
+const EMPTY: Content = { text: {}, photos: {}, casePosts: [] };
 
 const ContentContext = createContext<ContentContextValue | null>(null);
 
@@ -49,7 +54,11 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       ]);
       if (contentRes.ok) {
         const data = (await contentRes.json()) as Content;
-        setContent({ text: data.text ?? {}, photos: data.photos ?? {} });
+        setContent({
+          text: data.text ?? {},
+          photos: data.photos ?? {},
+          casePosts: data.casePosts ?? [],
+        });
       }
       if (meRes.ok) {
         const me = (await meRes.json()) as { isAdmin: boolean };
@@ -72,7 +81,11 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     });
     if (!res.ok) throw new Error(`saveText failed (${res.status})`);
     const next = (await res.json()) as Content;
-    setContent({ text: next.text ?? {}, photos: next.photos ?? {} });
+    setContent({
+      text: next.text ?? {},
+      photos: next.photos ?? {},
+      casePosts: next.casePosts ?? [],
+    });
   }, []);
 
   const uploadPhoto = useCallback(async (key: string, file: File) => {
@@ -96,7 +109,49 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       throw new Error(message);
     }
     const next = (await res.json()) as Content;
-    setContent({ text: next.text ?? {}, photos: next.photos ?? {} });
+    setContent({
+      text: next.text ?? {},
+      photos: next.photos ?? {},
+      casePosts: next.casePosts ?? [],
+    });
+  }, []);
+
+  const publishCasePost = useCallback(async (file: File, caption: string) => {
+    const form = new FormData();
+    form.set("file", file);
+    form.set("caption", caption);
+    const res = await fetch("/api/admin/case-post", { method: "POST", body: form });
+    if (!res.ok) {
+      let message = `Publish failed (${res.status})`;
+      try {
+        const j = (await res.json()) as { error?: string };
+        if (j.error) message = j.error;
+      } catch {
+        if (res.status === 413) message = "Image is too large. Try a smaller file.";
+      }
+      throw new Error(message);
+    }
+    const next = (await res.json()) as Content;
+    setContent({
+      text: next.text ?? {},
+      photos: next.photos ?? {},
+      casePosts: next.casePosts ?? [],
+    });
+  }, []);
+
+  const deleteCasePost = useCallback(async (id: string) => {
+    const res = await fetch("/api/admin/case-post", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+    if (!res.ok) throw new Error(`Delete failed (${res.status})`);
+    const next = (await res.json()) as Content;
+    setContent({
+      text: next.text ?? {},
+      photos: next.photos ?? {},
+      casePosts: next.casePosts ?? [],
+    });
   }, []);
 
   const login = useCallback(
@@ -127,8 +182,18 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo<ContentContextValue>(
-    () => ({ content, isAdmin, refresh, saveText, uploadPhoto, login, logout }),
-    [content, isAdmin, refresh, saveText, uploadPhoto, login, logout],
+    () => ({
+      content,
+      isAdmin,
+      refresh,
+      saveText,
+      uploadPhoto,
+      publishCasePost,
+      deleteCasePost,
+      login,
+      logout,
+    }),
+    [content, isAdmin, refresh, saveText, uploadPhoto, publishCasePost, deleteCasePost, login, logout],
   );
 
   return <ContentContext.Provider value={value}>{children}</ContentContext.Provider>;

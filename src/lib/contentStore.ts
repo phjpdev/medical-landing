@@ -1,33 +1,27 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
-// Filesystem-backed content store. Uses two locations on disk:
-//   - data/content.json — text edits + photo URL mapping
-//   - data/uploads/photos/{key}.jpg — uploaded images
-//
-// IMPORTANT: uploads live OUTSIDE `public/` because Next.js's static asset
-// pipeline only serves files that existed at build time (especially in
-// standalone / `next start` deployments on a VPS). Instead, uploaded files
-// are streamed by the `/api/uploads/[filename]` route handler, which reads
-// from disk on each request — so files added at runtime work immediately.
-//
-// On Hostinger VPS the Node process is long-lived so these dirs survive
-// between requests / restarts.
+export type CasePost = {
+  id: string;
+  caption: string;
+  photoKey: string;
+  createdAt: string;
+};
 
 export type ContentShape = {
   version: 1;
   text: Record<string, string>;
-  photos: Record<string, string>; // storageKey → public URL (with cache-busting query)
+  photos: Record<string, string>;
+  casePosts?: CasePost[];
 };
 
 const ROOT = process.cwd();
 export const DATA_DIR = path.join(ROOT, "data");
 export const CONTENT_FILE = path.join(DATA_DIR, "content.json");
 export const UPLOADS_DIR = path.join(DATA_DIR, "uploads", "photos");
-// URL prefix served by the /api/uploads/[filename] route handler
 export const UPLOADS_PUBLIC_PATH = "/api/uploads";
 
-const EMPTY: ContentShape = { version: 1, text: {}, photos: {} };
+const EMPTY: ContentShape = { version: 1, text: {}, photos: {}, casePosts: [] };
 
 async function ensureDirs() {
   await fs.mkdir(DATA_DIR, { recursive: true });
@@ -36,17 +30,21 @@ async function ensureDirs() {
 
 let cache: ContentShape | null = null;
 
+function normalizeContent(parsed: ContentShape): ContentShape {
+  return {
+    version: 1,
+    text: parsed.text ?? {},
+    photos: parsed.photos ?? {},
+    casePosts: parsed.casePosts ?? [],
+  };
+}
+
 export async function readContent(): Promise<ContentShape> {
   if (cache) return cache;
   await ensureDirs();
   try {
     const raw = await fs.readFile(CONTENT_FILE, "utf8");
-    const parsed = JSON.parse(raw) as ContentShape;
-    cache = {
-      version: 1,
-      text: parsed.text ?? {},
-      photos: parsed.photos ?? {},
-    };
+    cache = normalizeContent(JSON.parse(raw) as ContentShape);
   } catch {
     cache = { ...EMPTY };
   }
@@ -64,23 +62,53 @@ async function writeContent(next: ContentShape): Promise<ContentShape> {
 
 export async function setText(key: string, value: string): Promise<ContentShape> {
   const current = await readContent();
-  const next: ContentShape = {
+  return writeContent({
     ...current,
     text: { ...current.text, [key]: value },
-  };
-  return writeContent(next);
+  });
 }
 
 export async function setPhoto(key: string, publicUrl: string): Promise<ContentShape> {
   const current = await readContent();
-  const next: ContentShape = {
+  return writeContent({
     ...current,
     photos: { ...current.photos, [key]: publicUrl },
-  };
-  return writeContent(next);
+  });
 }
 
-// Sanitises a storage key to a safe filesystem name.
+export async function addCasePost(
+  caption: string,
+  photoKey: string,
+): Promise<ContentShape> {
+  const current = await readContent();
+  const post: CasePost = {
+    id: String(Date.now()),
+    caption: caption.trim(),
+    photoKey,
+    createdAt: new Date().toISOString(),
+  };
+  return writeContent({
+    ...current,
+    casePosts: [post, ...(current.casePosts ?? [])],
+  });
+}
+
+export async function removeCasePost(id: string): Promise<ContentShape> {
+  const current = await readContent();
+  const post = (current.casePosts ?? []).find((p) => p.id === id);
+  const nextPosts = (current.casePosts ?? []).filter((p) => p.id !== id);
+  const nextPhotos = { ...current.photos };
+  if (post) {
+    delete nextPhotos[post.photoKey];
+    try {
+      await fs.unlink(path.join(UPLOADS_DIR, `${sanitizeKey(post.photoKey)}.jpg`));
+    } catch {
+      // file may already be missing
+    }
+  }
+  return writeContent({ ...current, casePosts: nextPosts, photos: nextPhotos });
+}
+
 export function sanitizeKey(key: string): string {
   return key.replace(/[^a-zA-Z0-9._-]/g, "_").slice(0, 80);
 }

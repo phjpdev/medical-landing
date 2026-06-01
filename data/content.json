@@ -2,6 +2,15 @@
   "version": 1,
   "text": {},
   "photos": {
-    "case-photo-c1": "/uploads/photos/case-photo-c1.jpg?v=1779737669618"
-  }
+    "case-photo-c1": "/uploads/photos/case-photo-c1.jpg?v=1779737669618",
+    "case-post-1780350450170": "/api/uploads/case-post-1780350450170.jpg?v=1780350450301"
+  },
+  "casePosts": [
+    {
+      "id": "1780350450304",
+      "caption": "fsefesf",
+      "photoKey": "case-post-1780350450170",
+      "createdAt": "2026-06-01T21:47:30.304Z"
+    }
+  ]
 }

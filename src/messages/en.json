@@ -12,7 +12,8 @@
     "cases": "Before & After",
     "qa": "Q&A",
     "contact": "Contact",
-    "book": "Book Now"
+    "book": "Book Now",
+    "adminCases": "Case Admin"
   },
   "common": {
     "learnMore": "Learn more",
@@ -386,7 +387,33 @@
     },
     "placeholderBefore": "Before",
     "placeholderAfter": "After",
-    "disclaimer": "*Individual results vary based on skin condition and lifestyle and do not guarantee identical outcomes."
+    "disclaimer": "*Individual results vary based on skin condition and lifestyle and do not guarantee identical outcomes.",
+    "empty": "No case studies yet. Please check back soon."
+  },
+  "admin": {
+    "cases": {
+      "title": "Daily case studies",
+      "subtitle": "Upload a photo and caption — it appears instantly on the Before & After page. Publish a new case each day.",
+      "viewPublic": "View public page",
+      "publishTitle": "Publish new case",
+      "photoLabel": "Case photo (square recommended)",
+      "photoHint": "Click to upload",
+      "captionLabel": "Caption",
+      "captionPlaceholder": "e.g. Lower face — 500 shots result",
+      "publish": "Publish to site",
+      "publishing": "Publishing…",
+      "published": "Published! Visitors can see it on the cases page now.",
+      "listTitle": "Published cases",
+      "listHint": "Newest entries appear first.",
+      "noPosts": "No cases published yet.",
+      "delete": "Delete",
+      "confirmDelete": "Delete this case study?",
+      "errors": {
+        "required": "Please upload a photo and enter a caption.",
+        "upload": "Upload failed. Please try again.",
+        "delete": "Delete failed. Please try again."
+      }
+    }
   },
   "qa": {
     "hero": {

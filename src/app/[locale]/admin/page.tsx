@@ -16,10 +16,8 @@ export default function AdminPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // If already signed in (e.g. revisiting /admin), bounce to the home page —
-  // the in-place edit affordances + nav indicators handle the rest.
   useEffect(() => {
-    if (isAdmin) router.replace("/");
+    if (isAdmin) router.replace("/admin/cases");
   }, [isAdmin, router]);
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -29,7 +27,7 @@ export default function AdminPage() {
     const result = await login(username, password);
     if (result.ok) {
       // Send the admin straight to the home page where editing happens
-      router.replace("/");
+      router.replace("/admin/cases");
     } else {
       setBusy(false);
       setError(result.error ?? "Login failed.");
@@ -50,7 +48,7 @@ export default function AdminPage() {
             <h1 className="font-serif text-3xl font-medium leading-tight">Admin Login</h1>
             <GoldDivider />
             <p className="text-sm leading-relaxed text-charcoal/70">
-              Sign in to edit testimonials, service cards, and case photos.
+              Sign in to publish daily case studies and edit site content.
             </p>
           </div>
 

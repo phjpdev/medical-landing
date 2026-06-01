@@ -12,7 +12,8 @@
     "cases": "真實案例",
     "qa": "Q&A",
     "contact": "聯絡我們",
-    "book": "立即預約"
+    "book": "立即預約",
+    "adminCases": "案例管理"
   },
   "common": {
     "learnMore": "了解更多",
@@ -386,7 +387,33 @@
     },
     "placeholderBefore": "Before",
     "placeholderAfter": "After",
-    "disclaimer": "*效果因個人膚況、生活習慣而異，並不代表所有人皆能達到相同效果。"
+    "disclaimer": "*效果因個人膚況、生活習慣而異，並不代表所有人皆能達到相同效果。",
+    "empty": "尚無案例，請稍後再來查看。"
+  },
+  "admin": {
+    "cases": {
+      "title": "每日案例管理",
+      "subtitle": "上傳照片與說明文字，即時顯示於「真實案例」頁面。建議每日發布一則新案例。",
+      "viewPublic": "查看公開頁面",
+      "publishTitle": "發布新案例",
+      "photoLabel": "案例照片（建議正方形）",
+      "photoHint": "點擊上傳圖片",
+      "captionLabel": "案例說明",
+      "captionPlaceholder": "例如：下半面-500發效果",
+      "publish": "發布到網站",
+      "publishing": "發布中…",
+      "published": "已發布！訪客現在可以在真實案例頁面看到。",
+      "listTitle": "已發布案例",
+      "listHint": "最新發布的會顯示在最前面。",
+      "noPosts": "尚未發布任何案例。",
+      "delete": "刪除",
+      "confirmDelete": "確定要刪除此案例嗎？",
+      "errors": {
+        "required": "請上傳照片並填寫說明文字。",
+        "upload": "上傳失敗，請稍後再試。",
+        "delete": "刪除失敗，請稍後再試。"
+      }
+    }
   },
   "qa": {
     "hero": {

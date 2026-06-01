@@ -77,6 +77,14 @@ export function MobileMenu({ variant = "light" }: { variant?: "light" | "dark" }
                 <ShieldCheck className="h-3.5 w-3.5" />
                 Signed in as admin
               </span>
+              <SheetClose asChild>
+                <Link
+                  href="/admin/cases"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-gold-primary/50 bg-gold-gradient px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink"
+                >
+                  {t("adminCases")}
+                </Link>
+              </SheetClose>
               <button
                 type="button"
                 onClick={async () => {

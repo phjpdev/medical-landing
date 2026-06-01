@@ -90,6 +90,22 @@ export function Navbar() {
               </Link>
             );
           })}
+          {isAdmin && (
+            <Link
+              href="/admin/cases"
+              className={cn(
+                "relative text-sm tracking-wide transition-colors duration-300",
+                pathname.startsWith("/admin")
+                  ? "text-gold-deep"
+                  : "text-charcoal/75 hover:text-gold-deep",
+              )}
+            >
+              {t("adminCases")}
+              {pathname.startsWith("/admin") && (
+                <span className="absolute -bottom-1.5 left-1/2 h-px w-6 -translate-x-1/2 bg-gold-primary" />
+              )}
+            </Link>
+          )}
         </nav>
 
         <div className="flex items-center gap-3">
@@ -97,11 +113,10 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => void logout()}
-              className="hidden items-center gap-1.5 rounded-full border border-gold-primary/50 bg-white/70 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-gold-deep backdrop-blur transition-colors hover:bg-gold-primary/10 lg:inline-flex"
+              className="hidden items-center gap-1.5 rounded-full border border-gold-primary/50 bg-white/70 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-gold-deep transition-colors hover:bg-gold-primary/10 lg:inline-flex"
               title="Sign out of admin"
             >
               <ShieldCheck className="h-3.5 w-3.5" />
-              Admin
               <LogOut className="h-3.5 w-3.5 opacity-70" />
             </button>
           )}
