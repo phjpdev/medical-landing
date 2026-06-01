@@ -22,16 +22,17 @@ export function ServiceCardsGrid({ items }: { items: ServiceCardItem[] }) {
         return (
           <RevealOnScroll key={s.title} index={i}>
             <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl gold-border bg-white/90 transition-all duration-500 hover:-translate-y-1 hover:shadow-gold">
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-square overflow-hidden bg-cream">
                 <EditableImage
                   storageKey={img.key}
                   alt={s.title}
                   defaultSrc={img.defaultSrc}
-                  objectPosition={img.objectPosition}
+                  objectPosition="center"
+                  fit="contain"
+                  uploadMaxSize={1200}
                   rounded="rounded-none"
-                  className="absolute inset-0 h-full w-full"
+                  className="absolute inset-0 h-full w-full !border-0 bg-cream"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
                 <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink shadow-sm">
                   {s.tag}
                 </span>

@@ -22,6 +22,8 @@ export function EditableImage({
   rounded = "rounded-2xl",
   defaultSrc,
   objectPosition = "center",
+  fit = "cover",
+  uploadMaxSize = 1200,
 }: {
   storageKey: string;
   alt: string;
@@ -30,10 +32,14 @@ export function EditableImage({
   /** Shown when no admin upload exists yet */
   defaultSrc?: string;
   objectPosition?: string;
+  fit?: "cover" | "contain";
+  /** Max width/height when compressing before upload */
+  uploadMaxSize?: number;
 }) {
   const { content, isAdmin, uploadPhoto } = useContentStore();
   const src = content.photos[storageKey] ?? defaultSrc ?? null;
   const imgStyle = { objectPosition };
+  const objectClass = fit === "contain" ? "object-contain" : "object-cover";
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -44,7 +50,7 @@ export function EditableImage({
     setBusy(true);
     setError(null);
     try {
-      const compressed = await resizeImageToFile(file);
+      const compressed = await resizeImageToFile(file, uploadMaxSize, uploadMaxSize);
       await uploadPhoto(storageKey, compressed);
     } catch (err) {
       console.error("[EditableImage] upload failed", err);
@@ -68,7 +74,7 @@ export function EditableImage({
       >
         {src ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={src} alt={alt} className="h-full w-full object-cover" style={imgStyle} />
+          <img src={src} alt={alt} className={cn("h-full w-full", objectClass)} style={imgStyle} />
         ) : (
           <div className="grid h-full w-full place-items-center text-charcoal/25">
             <ImageOff className="h-8 w-8" />
@@ -93,7 +99,7 @@ export function EditableImage({
     >
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={alt} className="h-full w-full object-cover" style={imgStyle} />
+        <img src={src} alt={alt} className={cn("h-full w-full", objectClass)} style={imgStyle} />
       ) : (
         <div className="grid h-full w-full place-items-center text-charcoal/40">
           <div className="flex flex-col items-center gap-2 px-3 text-center">
