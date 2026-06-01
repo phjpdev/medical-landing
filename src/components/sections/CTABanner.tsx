@@ -15,15 +15,7 @@ export function CTABanner({
 }) {
   return (
     <section className="container-x py-20">
-      <div className="relative overflow-hidden rounded-3xl gold-border bg-gradient-to-br from-[#FBF6E3] via-[#F5E6B8] to-[#F5EFE0] p-10 text-center shadow-gold-lg sm:p-16 lg:p-20">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-60"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(212,175,55,0.30), transparent 70%)",
-          }}
-        />
-        <div className="particle-bg pointer-events-none absolute inset-0 opacity-40" />
+      <div className="relative overflow-hidden rounded-3xl gold-border bg-white/90 p-10 text-center shadow-gold-lg backdrop-blur-sm sm:p-16 lg:p-20">
         <div className="relative flex flex-col items-center gap-5">
           <GoldDivider />
           <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">

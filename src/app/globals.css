@@ -78,6 +78,16 @@
     animation: shimmer 6s linear infinite;
   }
 
+  .gold-white-text {
+    background: linear-gradient(110deg, #E8D4A2 0%, #F5E6B8 25%, #FBF6E3 50%, #F5E6B8 75%, #E8D4A2 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 8s linear infinite;
+  }
+
   .gold-border {
     border: 1px solid rgba(212, 175, 55, 0.32);
   }

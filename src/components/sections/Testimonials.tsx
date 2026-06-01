@@ -12,23 +12,23 @@ export function Testimonials() {
   const items = t.raw("items") as { quote: string; author: string; meta: string }[];
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
+    <section className="relative py-24 md:py-28">
       <div className="container-x relative">
         <SectionEyebrow eyebrow="VOICES" title={t("title")} body={t("subtitle")} />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-y-24 md:grid-cols-3 md:gap-6">
           {items.map((it, i) => (
             <RevealOnScroll key={i} index={i}>
               <figure className="gold-glow-card relative flex h-full flex-col items-center rounded-3xl p-8 pt-20 text-center">
                 {/* Editable photo — floats above the card top */}
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                   <div className="relative">
-                    <div className="absolute -inset-2 rounded-full bg-gold-radial blur-md" />
+                    <div className="absolute -inset-2 rounded-none bg-gold-radial blur-md" />
                     <EditableImage
                       storageKey={`testimonial-photo-${i}`}
                       alt={it.author}
                       className="h-24 w-24 ring-2 ring-gold-primary/40"
-                      rounded="rounded-full"
+                      rounded="rounded-none"
                     />
                   </div>
                 </div>

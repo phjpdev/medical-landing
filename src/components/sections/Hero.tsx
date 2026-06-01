@@ -66,7 +66,7 @@ export function Hero() {
           className="relative mx-auto w-full max-w-2xl"
         >
           <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gold-radial blur-2xl" />
-          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl shadow-gold-lg gold-border bg-ink lg:max-w-md">
+          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl border-2 border-gold-primary/50 bg-gradient-to-br from-gold-50 via-gold-100 to-gold-50 shadow-gold-lg lg:max-w-md">
             <video
               className="block h-auto w-full"
               autoPlay
