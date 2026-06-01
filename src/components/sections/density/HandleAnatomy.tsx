@@ -19,7 +19,7 @@ export function HandleAnatomy() {
 
         <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
           <RevealOnScroll className="relative mx-auto w-full max-w-lg">
-            <div className="absolute -inset-4 -z-10 rounded-3xl bg-gold-radial blur-2xl" />
+            <div className="absolute -inset-4 -z-10 rounded-3xl bg-gold-radial opacity-50" />
             <div className="relative overflow-hidden rounded-3xl gold-border bg-white shadow-gold-lg">
               <Image
                 src="/images/density/handle.png"

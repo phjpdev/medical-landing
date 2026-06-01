@@ -19,7 +19,15 @@ export function Navbar() {
   const logout = useLogout();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 24);
+        ticking = false;
+      });
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -30,8 +38,8 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-40 transition-all duration-500",
         scrolled
-          ? "border-b border-gold-primary/15 bg-cream/92 backdrop-blur-md shadow-soft"
-          : "bg-cream/30 backdrop-blur-[2px]",
+          ? "border-b border-gold-primary/15 bg-cream/97 shadow-soft"
+          : "bg-cream/50",
       )}
     >
       <div className="container-x flex h-24 items-center justify-between gap-6 lg:h-28">

@@ -12,7 +12,6 @@ export function PageHero({
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 bg-cream-radial" />
-      <div className="particle-bg absolute inset-0 opacity-40" />
       <div className="container-x relative flex flex-col items-center gap-5 py-24 text-center md:py-32">
         {eyebrow && <span className="eyebrow">{eyebrow}</span>}
         <h1 className="font-serif text-4xl font-medium leading-tight sm:text-5xl lg:text-6xl">

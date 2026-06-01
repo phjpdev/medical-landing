@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { GoldDivider } from "@/components/visual/GoldDivider";
+import { RevealOnScroll } from "@/components/visual/RevealOnScroll";
+import { useInView } from "@/hooks/useInView";
 
 function AnimatedNumber({ value }: { value: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const { ref, inView } = useInView<HTMLSpanElement>(0.5);
   const numericTarget = parseInt(value.replace(/[^0-9]/g, ""), 10) || 0;
   const suffix = value.replace(/[0-9]/g, "");
   const [n, setN] = useState(0);
@@ -49,17 +49,9 @@ export function StatsBand() {
             "linear-gradient(180deg, rgba(245,239,224,0.55) 0%, rgba(251,246,227,0.50) 100%)",
         }}
       />
-      <div className="particle-bg absolute inset-0 opacity-40" />
 
       <div className="container-x relative grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative mx-auto w-full max-w-md"
-        >
-          <div className="absolute -inset-4 -z-10 rounded-3xl bg-gold-radial blur-2xl" />
+        <RevealOnScroll className="relative mx-auto w-full max-w-md">
           <div className="relative overflow-hidden rounded-3xl gold-border bg-white shadow-gold-lg">
             <Image
               src="/images/density/spokesperson.png"
@@ -70,7 +62,7 @@ export function StatsBand() {
               className="h-auto w-full"
             />
           </div>
-        </motion.div>
+        </RevealOnScroll>
 
         <div className="flex flex-col items-start gap-6">
           <span className="eyebrow">{t("eyebrow")}</span>

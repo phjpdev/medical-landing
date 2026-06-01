@@ -1,10 +1,10 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { GoldDivider } from "@/components/visual/GoldDivider";
+import { LazyVideo } from "@/components/visual/LazyVideo";
 
 export function Hero() {
   const t = useTranslations("home.hero");
@@ -18,16 +18,10 @@ export function Hero() {
             "linear-gradient(180deg, rgba(251,246,227,0.55) 0%, rgba(245,230,184,0.42) 35%, rgba(250,246,236,0.50) 70%, rgba(245,239,224,0.55) 100%)",
         }}
       />
-      <div className="particle-bg absolute inset-0 opacity-50" />
 
       <div className="container-x relative z-10 grid items-center gap-12 pb-20 pt-32 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:pb-28 lg:pt-40">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-start gap-6"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold-primary/40 bg-white/70 px-4 py-1.5 text-[10px] uppercase tracking-[0.32em] text-gold-deep backdrop-blur">
+        <div className="animate-fade-up flex flex-col items-start gap-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold-primary/40 bg-white/90 px-4 py-1.5 text-[10px] uppercase tracking-[0.32em] text-gold-deep">
             <Sparkles className="h-3 w-3" />
             {t("eyebrow")}
           </span>
@@ -51,41 +45,25 @@ export function Hero() {
             </Link>
             <Link
               href="/density"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-gold-primary/60 bg-white/60 px-7 py-3 text-sm font-medium tracking-wide text-gold-deep backdrop-blur transition-all duration-300 hover:bg-gold-primary/10"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-gold-primary/60 bg-white/80 px-7 py-3 text-sm font-medium tracking-wide text-gold-deep transition-all duration-300 hover:bg-gold-primary/10"
             >
               {t("cta2")}
             </Link>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Right — wide DENSITY hero artwork */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-2xl"
+        <div
+          className="animate-fade-up relative mx-auto w-full max-w-2xl"
+          style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
-          <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gold-radial blur-2xl" />
           <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl border-2 border-gold-primary/50 bg-gradient-to-br from-gold-50 via-gold-100 to-gold-50 shadow-gold-lg lg:max-w-md">
-            <video
-              className="block h-auto w-full"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              aria-label="無雙電波 DENSITY"
-            >
-              <source src="/0601.mp4" type="video/mp4" />
-            </video>
+            <LazyVideo src="/0601.mp4" ariaLabel="無雙電波 DENSITY" />
           </div>
-          {/* Corner ornaments */}
           <div className="absolute -left-3 -top-3 hidden h-16 w-16 rounded-tl-2xl border-l-2 border-t-2 border-gold-primary lg:block" />
           <div className="absolute -bottom-3 -right-3 hidden h-16 w-16 rounded-br-2xl border-b-2 border-r-2 border-gold-primary lg:block" />
-        </motion.div>
+        </div>
       </div>
 
-      {/* Bottom transition */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-cream" />
     </section>
   );

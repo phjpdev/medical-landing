@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { GoldDivider } from "@/components/visual/GoldDivider";
@@ -12,9 +11,6 @@ export function DensityHero() {
 
   return (
     <section className="relative -mt-24 flex min-h-[100svh] items-center overflow-hidden lg:-mt-28">
-      <div className="particle-bg absolute inset-0 opacity-25" />
-
-      {/* Decorative gold streaks */}
       <svg
         className="absolute inset-0 h-full w-full opacity-30"
         viewBox="0 0 1440 900"
@@ -34,13 +30,8 @@ export function DensityHero() {
       </svg>
 
       <div className="container-x relative z-10 grid items-center gap-12 pb-20 pt-32 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:pb-28 lg:pt-40">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          className="flex flex-col items-start gap-6"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold-primary/40 bg-white/70 px-4 py-1.5 text-[10px] uppercase tracking-[0.32em] text-gold-deep backdrop-blur">
+        <div className="animate-fade-up flex flex-col items-start gap-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold-primary/40 bg-white/90 px-4 py-1.5 text-[10px] uppercase tracking-[0.32em] text-gold-deep">
             <Sparkles className="h-3 w-3" />
             {t("eyebrow")}
           </span>
@@ -62,15 +53,12 @@ export function DensityHero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.2 }}
-          className="relative mx-auto w-full max-w-md"
+        <div
+          className="animate-fade-up relative mx-auto w-full max-w-md"
+          style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
-          <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gold-radial blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl gold-border bg-white shadow-gold-lg">
             <Image
               src="/images/density/spokesperson.png"
@@ -84,7 +72,7 @@ export function DensityHero() {
           </div>
           <div className="absolute -left-3 -top-3 hidden h-16 w-16 rounded-tl-2xl border-l-2 border-t-2 border-gold-primary lg:block" />
           <div className="absolute -bottom-3 -right-3 hidden h-16 w-16 rounded-br-2xl border-b-2 border-r-2 border-gold-primary lg:block" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -71,7 +71,7 @@ export function ImageShowcase({
 
         <RevealOnScroll className={`mx-auto ${eyebrow || title ? "mt-12" : "mt-0"} ${maxWidth}`}>
           <div className="relative">
-            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gold-radial blur-2xl" />
+            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gold-radial opacity-50" />
             <div className={`relative overflow-hidden rounded-3xl gold-border bg-white shadow-gold-lg ${ratioClass}`}>
               {ratioClass ? (
                 <Image

@@ -23,7 +23,7 @@ export function Testimonials() {
                 {/* Editable photo — floats above the card top */}
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                   <div className="relative">
-                    <div className="absolute -inset-2 rounded-none bg-gold-radial blur-md" />
+                    <div className="absolute -inset-1 rounded-none bg-gold-radial opacity-60" />
                     <EditableImage
                       storageKey={`testimonial-photo-${i}`}
                       alt={it.author}

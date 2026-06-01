@@ -1,12 +1,12 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { RevealOnScroll } from "@/components/visual/RevealOnScroll";
+import { useInView } from "@/hooks/useInView";
 
 function AnimatedNumber({ value }: { value: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.4 });
+  const { ref, inView } = useInView<HTMLSpanElement>(0.4);
   const numericTarget = parseInt(value.replace(/[^0-9]/g, ""), 10) || 0;
   const suffix = value.replace(/[0-9]/g, "");
   const [n, setN] = useState(0);
@@ -42,17 +42,10 @@ export function DensityStats() {
     <section className="container-x relative py-16 md:py-24">
       <div className="grid items-stretch gap-px overflow-hidden rounded-3xl gold-border bg-gold-primary/15 shadow-gold-lg sm:grid-cols-3">
         {items.map((it, i) => (
-          <motion.div
-            key={it.label}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="flex flex-col items-center justify-center gap-3 bg-white/85 p-10 text-center"
-          >
+          <RevealOnScroll key={it.label} index={i} className="flex flex-col items-center justify-center gap-3 bg-white/90 p-10 text-center">
             <AnimatedNumber value={it.value} />
             <span className="text-sm tracking-[0.12em] text-charcoal/70">{it.label}</span>
-          </motion.div>
+          </RevealOnScroll>
         ))}
       </div>
       <p className="mt-4 text-center text-xs text-charcoal/55">

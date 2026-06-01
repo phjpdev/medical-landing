@@ -59,7 +59,7 @@ export function DensityHighlight() {
         </RevealOnScroll>
 
         <RevealOnScroll index={1} className="relative">
-          <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gold-radial blur-2xl" />
+          <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gold-radial opacity-50" />
           <div className="relative overflow-hidden rounded-3xl gold-border bg-white shadow-gold-lg">
             <Image
               src="/images/density/benefits-ring.jpg"

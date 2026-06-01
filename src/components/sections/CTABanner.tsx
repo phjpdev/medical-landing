@@ -15,7 +15,7 @@ export function CTABanner({
 }) {
   return (
     <section className="container-x py-20">
-      <div className="relative overflow-hidden rounded-3xl gold-border bg-white/90 p-10 text-center shadow-gold-lg backdrop-blur-sm sm:p-16 lg:p-20">
+      <div className="relative overflow-hidden rounded-3xl gold-border bg-white/95 p-10 text-center shadow-gold-lg sm:p-16 lg:p-20">
         <div className="relative flex flex-col items-center gap-5">
           <GoldDivider />
           <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
