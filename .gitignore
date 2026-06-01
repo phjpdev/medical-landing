@@ -31,6 +31,10 @@ yarn-error.log*
 .env*
 !.env.example
 
+# runtime CMS data (admin uploads — keep on server only)
+/data/content.json
+/data/uploads/
+
 # vercel
 .vercel
 
