@@ -13,6 +13,7 @@ export function ImageShowcase({
   variant = "cream",
   width = 1600,
   height = 900,
+  className = "",
 }: {
   eyebrow?: string;
   title?: string;
@@ -24,6 +25,8 @@ export function ImageShowcase({
   variant?: "cream" | "gold" | "transparent";
   width?: number;
   height?: number;
+  /** Extra utility classes appended to the <section> (e.g. extra top spacing) */
+  className?: string;
 }) {
   const ratioClass =
     ratio === "wide"
@@ -35,7 +38,7 @@ export function ImageShowcase({
           : "";
 
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className={`relative overflow-hidden py-24 ${className}`}>
       {variant === "gold" && (
         <div
           className="absolute inset-0"

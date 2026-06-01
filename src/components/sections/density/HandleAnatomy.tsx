@@ -49,7 +49,7 @@ export function HandleAnatomy() {
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-80 lg:mt-60">
           <h3 className="text-center font-serif text-2xl font-medium text-charcoal">
             {t("tipsTitle")}
           </h3>

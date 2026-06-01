@@ -66,6 +66,7 @@ export default async function DensityPage({
           maxWidth="max-w-6xl"
           width={1600}
           height={1200}
+          className="mt-24 lg:mt-32"
         />
 
         <HandleAnatomy />
