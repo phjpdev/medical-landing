@@ -18,13 +18,6 @@ export function Hero() {
             "linear-gradient(180deg, rgba(251,246,227,0.55) 0%, rgba(245,230,184,0.42) 35%, rgba(250,246,236,0.50) 70%, rgba(245,239,224,0.55) 100%)",
         }}
       />
-      <div
-        className="absolute inset-0 opacity-60"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 50% at 30% 40%, rgba(212,175,55,0.30), transparent 70%)",
-        }}
-      />
       <div className="particle-bg absolute inset-0 opacity-50" />
 
       <div className="container-x relative z-10 grid items-center gap-12 pb-20 pt-32 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:pb-28 lg:pt-40">

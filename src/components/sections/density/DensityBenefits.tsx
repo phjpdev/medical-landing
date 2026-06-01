@@ -25,7 +25,7 @@ export function DensityBenefits() {
 
   return (
     <section className="container-x relative py-24">
-      <SectionEyebrow eyebrow="CORE BENEFITS" title={t("title")} />
+      <SectionEyebrow eyebrow="CORE BENEFITS" title={t("title")} withBackground />
 
       <div className="mt-12 grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-3">
         {items.map((it, i) => {

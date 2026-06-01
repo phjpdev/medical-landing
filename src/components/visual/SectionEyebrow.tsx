@@ -7,6 +7,7 @@ export function SectionEyebrow({
   body,
   align = "center",
   tone = "light",
+  withBackground = false,
   className,
 }: {
   eyebrow?: string;
@@ -14,6 +15,7 @@ export function SectionEyebrow({
   body?: string;
   align?: "center" | "left";
   tone?: "light" | "dark";
+  withBackground?: boolean;
   className?: string;
 }) {
   const colorTitle = tone === "dark" ? "text-cream" : "text-charcoal";
@@ -25,6 +27,8 @@ export function SectionEyebrow({
       className={cn(
         "flex flex-col gap-4",
         align === "center" ? "items-center text-center" : "items-start text-left",
+        withBackground &&
+          "rounded-2xl gold-border bg-white/85 px-6 py-5 shadow-soft backdrop-blur-sm sm:px-8 sm:py-6",
         className,
       )}
     >

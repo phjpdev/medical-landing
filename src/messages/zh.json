@@ -429,6 +429,10 @@
       "title": "聯絡我們",
       "body": "歡迎預約諮詢，我們的專業團隊將為您解答任何疑問。"
     },
+    "whatsapp": {
+      "label": "WhatsApp",
+      "body": "透過 WhatsApp 即時預約諮詢，我們的團隊將盡快回覆您。"
+    },
     "form": {
       "title": "預約諮詢",
       "name": "姓名",

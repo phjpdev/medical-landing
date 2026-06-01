@@ -61,7 +61,12 @@ export function ImageShowcase({
 
       <div className="container-x relative">
         {(eyebrow || title || body) && (
-          <SectionEyebrow eyebrow={eyebrow} title={title} body={body} />
+          <SectionEyebrow
+            eyebrow={eyebrow}
+            title={title}
+            body={body}
+            withBackground={variant === "transparent"}
+          />
         )}
 
         <RevealOnScroll className={`mx-auto ${eyebrow || title ? "mt-12" : "mt-0"} ${maxWidth}`}>

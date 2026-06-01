@@ -16,6 +16,7 @@ export const EDITABLE_NAV_KEYS = new Set<NavKey>(["home", "cases"]);
 
 export const CLINIC = {
   whatsapp: "https://wa.me/85269740633",
+  whatsappPhone: "+852 6974 0633",
   instagram: "https://www.instagram.com/iminfinity_medicall?igsh=MWJ6NWx0bGZ3aWhucQ==",
   instagramHandle: "@iminfinity_medicall",
   threads: "https://www.threads.com/@iminfinity_medicall",

@@ -429,6 +429,10 @@
       "title": "Contact Us",
       "body": "Book a consultation — our team is here to answer every question."
     },
+    "whatsapp": {
+      "label": "WhatsApp",
+      "body": "Book instantly via WhatsApp — our team will reply as soon as possible."
+    },
     "form": {
       "title": "Book a consultation",
       "name": "Full name",
