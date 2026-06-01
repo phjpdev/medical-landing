@@ -48,7 +48,11 @@ export default function RootLayout({
       className={`${cormorant.variable} ${inter.variable} ${notoSerifTC.variable} ${notoSansTC.variable}`}
       suppressHydrationWarning
     >
-      <body>{children}</body>
+      <body>
+        {/* Page-wide fixed gold-waves backdrop (mobile + desktop variants in globals.css) */}
+        <div className="page-backdrop" aria-hidden />
+        {children}
+      </body>
     </html>
   );
 }

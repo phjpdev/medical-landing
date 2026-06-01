@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -74,15 +73,18 @@ export function Hero() {
           className="relative mx-auto w-full max-w-2xl"
         >
           <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gold-radial blur-2xl" />
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl shadow-gold-lg gold-border">
-            <Image
-              src="/images/density/hero-wide.png"
-              alt="無雙電波 DENSITY"
-              fill
-              sizes="(max-width: 1024px) 90vw, 55vw"
-              className="object-cover"
-              priority
-            />
+          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl shadow-gold-lg gold-border bg-ink lg:max-w-md">
+            <video
+              className="block h-auto w-full"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              aria-label="無雙電波 DENSITY"
+            >
+              <source src="/0601.mp4" type="video/mp4" />
+            </video>
           </div>
           {/* Corner ornaments */}
           <div className="absolute -left-3 -top-3 hidden h-16 w-16 rounded-tl-2xl border-l-2 border-t-2 border-gold-primary lg:block" />
