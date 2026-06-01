@@ -15,8 +15,8 @@ export type NavKey = (typeof NAV_ITEMS)[number]["key"];
 export const EDITABLE_NAV_KEYS = new Set<NavKey>(["home", "cases"]);
 
 export const CLINIC = {
-  whatsapp: "https://wa.me/85200000000",
+  whatsapp: "https://wa.me/85269740633",
   instagram: "https://www.instagram.com/iminfinity_medicall?igsh=MWJ6NWx0bGZ3aWhucQ==",
   instagramHandle: "@iminfinity_medicall",
-  facebook: "https://facebook.com",
+  threads: "https://www.threads.com/@iminfinity_medicall",
 };
