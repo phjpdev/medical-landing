@@ -1,9 +1,11 @@
-import Image from "next/image";
+"use client";
+
 import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { SectionEyebrow } from "@/components/visual/SectionEyebrow";
 import { RevealOnScroll } from "@/components/visual/RevealOnScroll";
+import { EditableImage } from "@/components/visual/EditableImage";
 
 type ServiceItem = {
   tag: string;
@@ -13,11 +15,23 @@ type ServiceItem = {
   href: string;
 };
 
-const SERVICE_IMAGES = [
-  { src: "/images/density/hero-wide.png", objectPosition: "center", fit: "cover" as const },
-  { src: "/images/density/aftercare.jpg", objectPosition: "20% 30%", fit: "cover" as const },
-  { src: "/images/density/spokesperson.png", objectPosition: "center top", fit: "cover" as const },
-];
+const SERVICE_PREVIEW_IMAGES = [
+  {
+    key: "service-preview-0",
+    defaultSrc: "/images/density/hero-wide.png",
+    objectPosition: "center",
+  },
+  {
+    key: "service-preview-1",
+    defaultSrc: "/images/density/aftercare.jpg",
+    objectPosition: "20% 30%",
+  },
+  {
+    key: "service-preview-2",
+    defaultSrc: "/images/density/spokesperson.png",
+    objectPosition: "center top",
+  },
+] as const;
 
 export function ServicesPreview() {
   const t = useTranslations("home.servicesPreview");
@@ -32,21 +46,21 @@ export function ServicesPreview() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {items.map((s, i) => {
-            const img = SERVICE_IMAGES[i] ?? SERVICE_IMAGES[0];
+            const img = SERVICE_PREVIEW_IMAGES[i] ?? SERVICE_PREVIEW_IMAGES[0];
             return (
               <RevealOnScroll key={s.title} index={i}>
                 <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl gold-border bg-white/90 transition-all duration-500 hover:-translate-y-1 hover:shadow-gold">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={img.src}
+                    <EditableImage
+                      storageKey={img.key}
                       alt={s.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: img.objectPosition }}
+                      defaultSrc={img.defaultSrc}
+                      objectPosition={img.objectPosition}
+                      rounded="rounded-none"
+                      className="absolute inset-0 h-full w-full"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
-                    <span className="absolute right-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink shadow-sm">
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
+                    <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink shadow-sm">
                       {s.tag}
                     </span>
                   </div>

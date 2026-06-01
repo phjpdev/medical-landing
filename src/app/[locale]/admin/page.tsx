@@ -50,7 +50,7 @@ export default function AdminPage() {
             <h1 className="font-serif text-3xl font-medium leading-tight">Admin Login</h1>
             <GoldDivider />
             <p className="text-sm leading-relaxed text-charcoal/70">
-              Sign in to edit testimonials and case photos.
+              Sign in to edit testimonials, service cards, and case photos.
             </p>
           </div>
 

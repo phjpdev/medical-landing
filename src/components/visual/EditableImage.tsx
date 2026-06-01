@@ -19,14 +19,20 @@ export function EditableImage({
   alt,
   className,
   rounded = "rounded-2xl",
+  defaultSrc,
+  objectPosition = "center",
 }: {
   storageKey: string;
   alt: string;
   className?: string;
   rounded?: string;
+  /** Shown when no admin upload exists yet */
+  defaultSrc?: string;
+  objectPosition?: string;
 }) {
   const { content, isAdmin, uploadPhoto } = useContentStore();
-  const src = content.photos[storageKey] ?? null;
+  const src = content.photos[storageKey] ?? defaultSrc ?? null;
+  const imgStyle = { objectPosition };
   const [busy, setBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -57,7 +63,7 @@ export function EditableImage({
       >
         {src ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={src} alt={alt} className="h-full w-full object-cover" />
+          <img src={src} alt={alt} className="h-full w-full object-cover" style={imgStyle} />
         ) : (
           <div className="grid h-full w-full place-items-center text-charcoal/25">
             <ImageOff className="h-8 w-8" />
@@ -82,7 +88,7 @@ export function EditableImage({
     >
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={alt} className="h-full w-full object-cover" />
+        <img src={src} alt={alt} className="h-full w-full object-cover" style={imgStyle} />
       ) : (
         <div className="grid h-full w-full place-items-center text-charcoal/40">
           <div className="flex flex-col items-center gap-2 px-3 text-center">
