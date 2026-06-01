@@ -12,7 +12,7 @@ import {
 
 export const runtime = "nodejs";
 
-const MAX_BYTES = 8 * 1024 * 1024; // 8 MB cap before resize
+const MAX_BYTES = 12 * 1024 * 1024; // safety cap after client-side compression
 const MAX_WIDTH = 1200;
 const MAX_HEIGHT = 1600;
 const JPEG_QUALITY = 86;
@@ -36,7 +36,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Missing file" }, { status: 400 });
   }
   if (file.size > MAX_BYTES) {
-    return NextResponse.json({ error: "File too large" }, { status: 413 });
+    return NextResponse.json(
+      { error: "File too large. Please use an image under 12 MB." },
+      { status: 413 },
+    );
   }
 
   const key = sanitizeKey(rawKey.trim());

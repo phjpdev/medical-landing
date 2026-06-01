@@ -83,7 +83,18 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       method: "POST",
       body: form,
     });
-    if (!res.ok) throw new Error(`uploadPhoto failed (${res.status})`);
+    if (!res.ok) {
+      let message = `Upload failed (${res.status})`;
+      try {
+        const j = (await res.json()) as { error?: string };
+        if (j.error) message = j.error;
+      } catch {
+        if (res.status === 413) {
+          message = "Image is too large. Try a smaller file or another format.";
+        }
+      }
+      throw new Error(message);
+    }
     const next = (await res.json()) as Content;
     setContent({ text: next.text ?? {}, photos: next.photos ?? {} });
   }, []);

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { Camera, ImageOff } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { resizeImageToFile } from "@/lib/resizeImage";
 import { useContentStore } from "@/components/providers/ContentProvider";
 
 // Click-to-upload image. Reads the current photo URL from the shared content
@@ -34,16 +35,20 @@ export function EditableImage({
   const src = content.photos[storageKey] ?? defaultSrc ?? null;
   const imgStyle = { objectPosition };
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     setBusy(true);
+    setError(null);
     try {
-      await uploadPhoto(storageKey, file);
+      const compressed = await resizeImageToFile(file);
+      await uploadPhoto(storageKey, compressed);
     } catch (err) {
       console.error("[EditableImage] upload failed", err);
+      setError(err instanceof Error ? err.message : "Upload failed");
     } finally {
       setBusy(false);
       if (fileRef.current) fileRef.current.value = "";
@@ -108,10 +113,16 @@ export function EditableImage({
         </span>
       </div>
 
+      {error && (
+        <p className="pointer-events-none absolute inset-x-2 bottom-2 rounded-lg bg-destructive/90 px-2 py-1 text-[10px] text-white">
+          {error}
+        </p>
+      )}
+
       <input
         ref={fileRef}
         type="file"
-        accept="image/*"
+        accept="image/jpeg,image/png,image/webp,image/heic,image/*"
         onChange={onChange}
         className="sr-only"
       />
