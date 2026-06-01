@@ -18,36 +18,26 @@ function TimelineRow({
 }) {
   const isHigh = variant === "high";
   return (
-    <div
-      className={
-        isHigh
-          ? "relative overflow-hidden rounded-3xl p-8 text-cream bg-gradient-to-br from-[#4a3a14] via-[#3a2c10] to-[#1f180a] gold-border shadow-gold-lg"
-          : "rounded-3xl gold-border bg-white/85 p-8"
-      }
-    >
+    <div className="relative overflow-hidden rounded-3xl gold-border bg-white/90 p-8 shadow-soft backdrop-blur-sm">
+      {/* Subtle gold halo on the High Tip variant so it still reads as the premium one */}
       {isHigh && (
         <div
-          className="pointer-events-none absolute inset-0 opacity-40"
+          className="pointer-events-none absolute inset-0 opacity-50"
           style={{
             background:
-              "radial-gradient(ellipse 60% 60% at 50% 0%, rgba(245,230,184,0.35), transparent 70%)",
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(212,175,55,0.18), transparent 70%)",
           }}
         />
       )}
 
       <div className="relative flex flex-col items-center gap-2">
         {isHigh && badge && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink">
+          <span className="inline-flex items-center gap-1 rounded-full bg-gold-gradient px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink shadow-sm">
             <Crown className="h-3 w-3" />
             {badge}
           </span>
         )}
-        <h3
-          className={
-            "font-serif text-2xl font-medium leading-tight sm:text-3xl " +
-            (isHigh ? "gold-text" : "text-charcoal")
-          }
-        >
+        <h3 className="gold-text font-serif text-2xl font-medium leading-tight sm:text-3xl">
           {title}
         </h3>
       </div>
@@ -55,51 +45,20 @@ function TimelineRow({
       <div className="relative mt-10 grid gap-4 md:grid-cols-4">
         {phases.map((p, i) => (
           <div key={p.phase} className="relative flex flex-col gap-2">
-            <div
-              className={
-                "rounded-xl border p-4 transition-all " +
-                (isHigh
-                  ? "border-gold-primary/40 bg-white/[0.04] backdrop-blur"
-                  : "border-gold-primary/25 bg-white")
-              }
-            >
-              <div
-                className={
-                  "text-xs uppercase tracking-[0.18em] " +
-                  (isHigh ? "text-gold-light" : "text-gold-deep")
-                }
-              >
+            <div className="rounded-xl border border-gold-primary/25 bg-white p-4 transition-all">
+              <div className="text-xs uppercase tracking-[0.18em] text-gold-deep">
                 {p.phase}
               </div>
-              <div
-                className={
-                  "mt-3 font-serif text-base font-medium leading-snug " +
-                  (isHigh ? "text-cream" : "text-charcoal")
-                }
-              >
+              <div className="mt-3 font-serif text-base font-medium leading-snug text-charcoal">
                 {p.primary}
               </div>
-              <div
-                className={
-                  "mt-2 h-px w-8 " + (isHigh ? "bg-gold-primary/50" : "bg-gold-primary/40")
-                }
-              />
-              <div
-                className={
-                  "mt-2 text-xs leading-relaxed " +
-                  (isHigh ? "text-cream/70" : "text-charcoal/65")
-                }
-              >
+              <div className="mt-2 h-px w-8 bg-gold-primary/40" />
+              <div className="mt-2 text-xs leading-relaxed text-charcoal/65">
                 {p.secondary}
               </div>
             </div>
             {i < phases.length - 1 && (
-              <ChevronRight
-                className={
-                  "absolute -right-2 top-10 hidden h-5 w-5 md:block " +
-                  (isHigh ? "text-gold-light/70" : "text-gold-primary/60")
-                }
-              />
+              <ChevronRight className="absolute -right-2 top-10 hidden h-5 w-5 text-gold-primary/60 md:block" />
             )}
           </div>
         ))}
