@@ -19,6 +19,7 @@ export default async function DensityPage({
   const tCta = await getTranslations("density.ctaBanner");
   const tFeat = await getTranslations("density.features");
   const tTips = await getTranslations("density.tips");
+  const tHeads = await getTranslations("density.treatmentHeads");
   const tCmp = await getTranslations("density.comparison");
   const tAft = await getTranslations("density.aftercare");
 
@@ -58,8 +59,8 @@ export default async function DensityPage({
 
         <ImageShowcase
           eyebrow="TREATMENT HEADS"
-          title="創新治療頭技術"
-          body="依照不同部位與深度，三種專屬探頭精準傳遞能量。"
+          title={tHeads("title")}
+          body={tHeads("body")}
           src="/images/density/treatment-heads.jpg"
           alt="EYE / FACE / BODY 治療頭"
           variant="transparent"

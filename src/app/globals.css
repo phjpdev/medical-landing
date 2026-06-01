@@ -19,21 +19,27 @@
   body {
     @apply text-charcoal font-sans;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-    background-color: #FAF6EC;
+    background-color: #FDFCF9;
   }
 
   /* Fixed-position backdrop layer (rendered by RootLayout). Using a real DOM
      element + position:fixed is the cross-browser reliable way to do a parallax
      backdrop — `background-attachment: fixed` on <body> is silently ignored on
      iOS Safari and several Android browsers. */
+  /* ~20% white veil keeps waves readable while neutralising heavy yellow */
   .page-backdrop {
     position: fixed;
     inset: 0;
     z-index: -10;
     pointer-events: none;
-    background-color: #FAF6EC;
+    background-color: #FAFAF8;
     background-image:
-      linear-gradient(180deg, rgba(251, 246, 227, 0.25) 0%, rgba(250, 246, 236, 0.15) 50%, rgba(245, 239, 224, 0.25) 100%),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.18) 50%,
+        rgba(255, 255, 255, 0.2) 100%
+      ),
       url("/images/bg-gold-waves-mobile.jpg");
     background-size: cover, cover;
     background-position: center, center;
@@ -43,7 +49,12 @@
   @media (min-width: 1024px) {
     .page-backdrop {
       background-image:
-        linear-gradient(180deg, rgba(251, 246, 227, 0.25) 0%, rgba(250, 246, 236, 0.15) 50%, rgba(245, 239, 224, 0.25) 100%),
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.18) 50%,
+          rgba(255, 255, 255, 0.2) 100%
+        ),
         url("/images/bg-gold-waves.png");
     }
   }

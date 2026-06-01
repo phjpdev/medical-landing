@@ -46,7 +46,7 @@
     },
     "servicesPreview": {
       "title": "Our Services",
-      "subtitle": "Cutting-edge technology and medical expertise, tailored to your ideal contour.",
+      "subtitle": "Cutting-edge technology and medical expertise|tailored to your ideal contour.",
       "cta": "View all services"
     },
     "densityHighlight": {
@@ -95,7 +95,7 @@
     },
     "ctaBanner": {
       "title": "Book your Infinity experience",
-      "body": "One-to-one consultation with our medical team, tailored to your goals.",
+      "body": "One-to-one consultation with our medical team|tailored to your goals.",
       "cta": "Book Now"
     }
   },
@@ -219,6 +219,10 @@
         { "title": "Instant contour lift", "icon": "arrow-up" },
         { "title": "Low discomfort", "icon": "feather" }
       ]
+    },
+    "treatmentHeads": {
+      "title": "Innovative treatment heads",
+      "body": "Matched to each area and depth|three dedicated tips deliver energy with precision."
     },
     "tips": {
       "title": "Tip Technology",

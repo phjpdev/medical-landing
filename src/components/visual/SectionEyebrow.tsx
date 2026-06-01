@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { GoldDivider } from "./GoldDivider";
+import { ResponsiveSplitText } from "./ResponsiveSplitText";
 
 export function SectionEyebrow({
   eyebrow,
@@ -11,7 +12,7 @@ export function SectionEyebrow({
   className,
 }: {
   eyebrow?: string;
-  title?: React.ReactNode;
+  title?: string;
   body?: string;
   align?: "center" | "left";
   tone?: "light" | "dark";
@@ -64,14 +65,16 @@ export function SectionEyebrow({
             colorTitle,
           )}
         >
-          {title}
+          <ResponsiveSplitText text={title} />
         </h2>
       )}
       {showDivider && <GoldDivider tone={dividerTone} className="my-0.5" />}
       {body && (
-        <p className={cn("max-w-2xl text-base leading-relaxed sm:text-lg", colorBody)}>
-          {body}
-        </p>
+        <ResponsiveSplitText
+          as="p"
+          text={body}
+          className={cn("max-w-2xl text-base leading-relaxed sm:text-lg", colorBody)}
+        />
       )}
     </div>
   );

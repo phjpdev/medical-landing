@@ -40,7 +40,6 @@ export function ServicesPreview() {
 
   return (
     <section className="relative overflow-hidden py-20 md:py-28">
-      <div className="absolute inset-0 bg-cream-radial" />
       <div className="container-x relative">
         <SectionEyebrow eyebrow={t("title")} title={t("subtitle")} />
 

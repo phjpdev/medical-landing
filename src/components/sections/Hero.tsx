@@ -11,14 +11,6 @@ export function Hero() {
 
   return (
     <section className="relative -mt-24 flex min-h-[100svh] items-center overflow-hidden lg:-mt-28">
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(251,246,227,0.55) 0%, rgba(245,230,184,0.42) 35%, rgba(250,246,236,0.50) 70%, rgba(245,239,224,0.55) 100%)",
-        }}
-      />
-
       <div className="container-x relative z-10 grid items-center gap-12 pb-20 pt-32 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:pb-28 lg:pt-40">
         <div className="animate-fade-up flex flex-col items-start gap-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-gold-primary/40 bg-white/90 px-4 py-1.5 text-[10px] uppercase tracking-[0.32em] text-gold-deep">

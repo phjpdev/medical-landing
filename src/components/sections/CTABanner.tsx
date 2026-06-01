@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { GoldDivider } from "@/components/visual/GoldDivider";
+import { ResponsiveSplitText } from "@/components/visual/ResponsiveSplitText";
 
 export function CTABanner({
   title,
@@ -21,7 +22,11 @@ export function CTABanner({
           <h2 className="font-serif text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
             <span className="gold-text">{title}</span>
           </h2>
-          <p className="max-w-xl text-base leading-relaxed text-charcoal/80">{body}</p>
+          <ResponsiveSplitText
+            as="p"
+            text={body}
+            className="max-w-xl text-base leading-relaxed text-charcoal/80"
+          />
           <Link href={href} className="btn-gold mt-3 group">
             {cta}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
