@@ -9,12 +9,15 @@ function ContactCard({
   label,
   handle,
   body,
+  handleStyle = "gold",
 }: {
   href: string;
   icon: React.ReactNode;
   label: string;
   handle: string;
   body: string;
+  /** Plain readable text for phone numbers; gold serif for social handles */
+  handleStyle?: "gold" | "normal";
 }) {
   return (
     <a
@@ -38,8 +41,14 @@ function ContactCard({
 
         <div className="flex-1">
           <div className="text-xs uppercase tracking-[0.32em] text-gold-deep">{label}</div>
-          <h2 className="mt-2 font-serif text-2xl font-medium leading-tight sm:text-3xl">
-            <span className="gold-text">{handle}</span>
+          <h2
+            className={
+              handleStyle === "normal"
+                ? "mt-2 font-sans text-lg font-normal leading-tight tracking-normal text-gold-deep tabular-nums sm:text-xl"
+                : "mt-2 font-serif text-2xl font-medium leading-tight sm:text-3xl"
+            }
+          >
+            {handleStyle === "normal" ? handle : <span className="gold-text">{handle}</span>}
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-charcoal/70">{body}</p>
         </div>
@@ -72,6 +81,7 @@ export default async function ContactPage({
           label={t("whatsapp.label")}
           handle={CLINIC.whatsappPhone}
           body={t("whatsapp.body")}
+          handleStyle="normal"
         />
 
         <ContactCard
