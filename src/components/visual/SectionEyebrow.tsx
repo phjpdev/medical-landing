@@ -61,11 +61,13 @@ export function SectionEyebrow({
       {title && (
         <h2
           className={cn(
-            "font-serif text-3xl font-medium leading-[1.15] sm:text-4xl lg:text-5xl",
+            "font-serif text-[clamp(0.75rem,3.75vw,1.875rem)] font-medium leading-[1.2] sm:text-4xl lg:text-5xl",
             colorTitle,
           )}
         >
-          <ResponsiveSplitText text={title} />
+          <span className="whitespace-nowrap sm:whitespace-normal">
+            <ResponsiveSplitText text={title} />
+          </span>
         </h2>
       )}
       {showDivider && <GoldDivider tone={dividerTone} className="my-0.5" />}

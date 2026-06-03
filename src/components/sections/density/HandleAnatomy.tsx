@@ -6,7 +6,6 @@ import { RevealOnScroll } from "@/components/visual/RevealOnScroll";
 export function HandleAnatomy() {
   const t = useTranslations("density.handle");
   const controls = t.raw("controls") as { label: string; body: string }[];
-  const tipList = t.raw("tipList") as { name: string; body: string }[];
 
   return (
     <section className="relative overflow-hidden py-24">
@@ -44,21 +43,6 @@ export function HandleAnatomy() {
                     <h3 className="font-serif text-lg font-medium text-charcoal">{c.label}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-charcoal/70">{c.body}</p>
                   </div>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-24 lg:mt-28">
-          <SectionEyebrow title={t("tipsTitle")} withBackground className="max-w-xl" />
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {tipList.map((tp, i) => (
-              <RevealOnScroll key={tp.name} index={i}>
-                <div className="rounded-2xl gold-border bg-white/95 p-6 text-center shadow-soft transition-shadow hover:shadow-gold">
-                  <div className="font-serif text-xl text-gold-deep">{tp.name}</div>
-                  <div className="mt-3 mx-auto h-px w-12 bg-gold-primary/50" />
-                  <p className="mt-3 text-sm leading-relaxed text-charcoal/75">{tp.body}</p>
                 </div>
               </RevealOnScroll>
             ))}

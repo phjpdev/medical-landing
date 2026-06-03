@@ -3,6 +3,7 @@ import { DensityHero } from "@/components/sections/density/DensityHero";
 import { DensityStats } from "@/components/sections/density/DensityStats";
 import { DensityBenefits } from "@/components/sections/density/DensityBenefits";
 import { HandleAnatomy } from "@/components/sections/density/HandleAnatomy";
+import { ExclusiveTreatmentTips } from "@/components/sections/density/ExclusiveTreatmentTips";
 import { HeatingComparison } from "@/components/sections/density/HeatingComparison";
 import { AgingTimeline } from "@/components/sections/density/AgingTimeline";
 import { ImageShowcase } from "@/components/sections/density/ImageShowcase";
@@ -70,6 +71,7 @@ export default async function DensityPage({
           className="mt-24 lg:mt-32"
         />
 
+        <ExclusiveTreatmentTips />
         <HandleAnatomy />
         <HeatingComparison />
         <AgingTimeline />
