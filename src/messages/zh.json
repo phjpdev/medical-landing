@@ -24,7 +24,12 @@
     "submit": "送出",
     "submitting": "送出中…",
     "successMessage": "我們已收到您的訊息，將盡快與您聯絡。",
-    "required": "必填"
+    "required": "必填",
+    "ctaBanner": {
+      "title": "預約 DENSITY 體驗",
+      "body": "立即預約 DENSITY 體驗價|$4280@100發|(可選雙下巴jawline位置)",
+      "cta": "立即預約"
+    }
   },
   "home": {
     "hero": {
@@ -93,11 +98,6 @@
           "meta": "身體緊緻療程"
         }
       ]
-    },
-    "ctaBanner": {
-      "title": "預約你的無雙體驗",
-      "body": "立即預約 DENSITY 體驗價|$4280@100發|(可選雙下巴jawline位置)",
-      "cta": "立即預約"
     }
   },
   "about": {
@@ -366,11 +366,6 @@
         }
       ],
       "footer": "Density 的效果維持至少一年，肌膚老化、生活作息、飲食習慣等會影響效果，因此注意保養亦是持久美麗的關鍵。"
-    },
-    "ctaBanner": {
-      "title": "預約 DENSITY 體驗",
-      "body": "立即預約 DENSITY 體驗價|$4280@100發|(可選雙下巴jawline位置)",
-      "cta": "立即預約"
     }
   },
   "cases": {

@@ -24,7 +24,12 @@
     "submit": "Submit",
     "submitting": "Submitting…",
     "successMessage": "Thank you. We have received your enquiry and will be in touch shortly.",
-    "required": "Required"
+    "required": "Required",
+    "ctaBanner": {
+      "title": "Book your DENSITY experience",
+      "body": "Book DENSITY trial pricing|$4280 @ 100 shots|(Optional jawline / double chin area)",
+      "cta": "Book Now"
+    }
   },
   "home": {
     "hero": {
@@ -93,11 +98,6 @@
           "meta": "Body tightening"
         }
       ]
-    },
-    "ctaBanner": {
-      "title": "Book your Infinity experience",
-      "body": "Book DENSITY trial pricing|$4280 @ 100 shots|(Optional jawline / double chin area)",
-      "cta": "Book Now"
     }
   },
   "about": {
@@ -366,11 +366,6 @@
         }
       ],
       "footer": "DENSITY results last at least one year. Lifestyle, sleep and skincare habits all influence longevity — ongoing care is key."
-    },
-    "ctaBanner": {
-      "title": "Book your DENSITY experience",
-      "body": "Book DENSITY trial pricing|$4280 @ 100 shots|(Optional jawline / double chin area)",
-      "cta": "Book Now"
     }
   },
   "cases": {

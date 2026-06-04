@@ -14,7 +14,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const tCta = await getTranslations("home.ctaBanner");
+  const tCta = await getTranslations("common.ctaBanner");
 
   return (
     <>

@@ -11,7 +11,7 @@ export default async function ServicesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("services");
-  const tCta = await getTranslations("home.ctaBanner");
+  const tCta = await getTranslations("common.ctaBanner");
   const items = t.raw("items") as ServiceCardItem[];
 
   return (

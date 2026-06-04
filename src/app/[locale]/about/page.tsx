@@ -15,7 +15,7 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("about");
-  const tCta = await getTranslations("home.ctaBanner");
+  const tCta = await getTranslations("common.ctaBanner");
 
   const mvv = t.raw("mvv.items") as { title: string; body: string }[];
   const why = t.raw("why.items") as { title: string; body: string }[];

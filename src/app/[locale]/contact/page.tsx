@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Instagram, MessageCircle, ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
+import { CTABanner } from "@/components/sections/CTABanner";
 import { CLINIC } from "@/lib/constants";
 
 function ContactCard({
@@ -69,6 +70,7 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("contact");
+  const tCta = await getTranslations("common.ctaBanner");
 
   return (
     <>
@@ -92,6 +94,8 @@ export default async function ContactPage({
           body="追蹤我們的 Instagram，掌握最新療程資訊、真實案例與優惠活動。"
         />
       </section>
+
+      <CTABanner title={tCta("title")} body={tCta("body")} cta={tCta("cta")} />
     </>
   );
 }

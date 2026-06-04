@@ -17,7 +17,7 @@ export default async function QAPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("qa");
-  const tCta = await getTranslations("home.ctaBanner");
+  const tCta = await getTranslations("common.ctaBanner");
   const groups = t.raw("groups") as QAGroup[];
 
   return (

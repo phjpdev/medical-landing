@@ -17,7 +17,7 @@ export default async function DensityPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const tCta = await getTranslations("density.ctaBanner");
+  const tCta = await getTranslations("common.ctaBanner");
   const tFeat = await getTranslations("density.features");
   const tTips = await getTranslations("density.tips");
   const tHeads = await getTranslations("density.treatmentHeads");
