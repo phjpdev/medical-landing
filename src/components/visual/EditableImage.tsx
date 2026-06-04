@@ -24,6 +24,7 @@ export function EditableImage({
   objectPosition = "center",
   fit = "cover",
   uploadMaxSize = 1200,
+  autoHeight = false,
 }: {
   storageKey: string;
   alt: string;
@@ -35,11 +36,17 @@ export function EditableImage({
   fit?: "cover" | "contain";
   /** Max width/height when compressing before upload */
   uploadMaxSize?: number;
+  /** Size container to the image's natural aspect ratio */
+  autoHeight?: boolean;
 }) {
   const { content, isAdmin, uploadPhoto } = useContentStore();
   const src = content.photos[storageKey] ?? defaultSrc ?? null;
   const imgStyle = { objectPosition };
   const objectClass = fit === "contain" ? "object-contain" : "object-cover";
+  const imgClass = autoHeight
+    ? "block h-auto w-full"
+    : cn("h-full w-full", objectClass);
+  const emptyClass = autoHeight ? "min-h-32" : "h-full w-full";
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -74,9 +81,9 @@ export function EditableImage({
       >
         {src ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={src} alt={alt} className={cn("h-full w-full", objectClass)} style={imgStyle} />
+          <img src={src} alt={alt} className={imgClass} style={autoHeight ? undefined : imgStyle} />
         ) : (
-          <div className="grid h-full w-full place-items-center text-charcoal/25">
+          <div className={cn("grid place-items-center text-charcoal/25", emptyClass)}>
             <ImageOff className="h-8 w-8" />
           </div>
         )}
@@ -99,9 +106,9 @@ export function EditableImage({
     >
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={alt} className={cn("h-full w-full", objectClass)} style={imgStyle} />
+        <img src={src} alt={alt} className={imgClass} style={autoHeight ? undefined : imgStyle} />
       ) : (
-        <div className="grid h-full w-full place-items-center text-charcoal/40">
+        <div className={cn("grid place-items-center text-charcoal/40", emptyClass)}>
           <div className="flex flex-col items-center gap-2 px-3 text-center">
             <ImageOff className="h-8 w-8" />
             <span className="text-[10px] uppercase tracking-[0.18em]">
