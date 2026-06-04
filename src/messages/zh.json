@@ -396,7 +396,7 @@
       "subtitle": "上傳照片與說明文字，即時顯示於「真實案例」頁面。建議每日發布一則新案例。",
       "viewPublic": "查看公開頁面",
       "publishTitle": "發布新案例",
-      "photoLabel": "案例照片（建議正方形）",
+      "photoLabel": "案例照片（建議 3:4 直向）",
       "photoHint": "點擊上傳圖片",
       "captionLabel": "案例說明",
       "captionPlaceholder": "例如：下半面-500發效果",

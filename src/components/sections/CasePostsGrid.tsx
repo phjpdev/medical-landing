@@ -23,7 +23,7 @@ function CasePostCard({ post, photoUrl }: { post: CasePost; photoUrl: string | n
 
   return (
     <article className="overflow-hidden rounded-3xl gold-border bg-white/90 shadow-soft">
-      <div className="relative aspect-square overflow-hidden bg-cream">
+      <div className="relative aspect-[3/4] overflow-hidden bg-cream">
         {photoUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img

@@ -57,7 +57,7 @@ export default function AdminCasesPage() {
     setError(null);
     setSuccess(null);
     try {
-      const compressed = await resizeImageToFile(file, 1200, 1200);
+      const compressed = await resizeImageToFile(file, 900, 1200);
       await publishCasePost(compressed, caption.trim());
       setCaption("");
       setFile(null);
@@ -121,7 +121,7 @@ export default function AdminCasesPage() {
             <button
               type="button"
               onClick={() => fileRef.current?.click()}
-              className="relative flex aspect-square w-full max-w-xs flex-col items-center justify-center overflow-hidden rounded-2xl gold-border bg-cream text-charcoal/50 transition hover:shadow-gold"
+              className="relative flex aspect-[3/4] w-full max-w-xs flex-col items-center justify-center overflow-hidden rounded-2xl gold-border bg-cream text-charcoal/50 transition hover:shadow-gold"
             >
               {preview ? (
                 // eslint-disable-next-line @next/next/no-img-element
