@@ -402,11 +402,19 @@
       "listHint": "Newest entries appear first.",
       "noPosts": "No cases published yet.",
       "delete": "Delete",
+      "edit": "Edit",
+      "editTitle": "Edit case",
+      "dateLabel": "Date & time",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "saved": "Case updated.",
+      "photoReplaceHint": "Click to replace photo",
       "confirmDelete": "Delete this case study?",
       "errors": {
         "required": "Please upload a photo and enter a caption.",
         "upload": "Upload failed. Please try again.",
-        "delete": "Delete failed. Please try again."
+        "delete": "Delete failed. Please try again.",
+        "update": "Update failed. Please try again."
       }
     }
   },

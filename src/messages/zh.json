@@ -402,11 +402,19 @@
       "listHint": "最新發布的會顯示在最前面。",
       "noPosts": "尚未發布任何案例。",
       "delete": "刪除",
+      "edit": "編輯",
+      "editTitle": "編輯案例",
+      "dateLabel": "日期與時間",
+      "save": "儲存變更",
+      "saving": "儲存中…",
+      "saved": "案例已更新。",
+      "photoReplaceHint": "點擊更換照片",
       "confirmDelete": "確定要刪除此案例嗎？",
       "errors": {
         "required": "請上傳照片並填寫說明文字。",
         "upload": "上傳失敗，請稍後再試。",
-        "delete": "刪除失敗，請稍後再試。"
+        "delete": "刪除失敗，請稍後再試。",
+        "update": "更新失敗，請稍後再試。"
       }
     }
   },

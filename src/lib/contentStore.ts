@@ -93,6 +93,27 @@ export async function addCasePost(
   });
 }
 
+export async function updateCasePost(
+  id: string,
+  updates: { caption?: string; createdAt?: string },
+): Promise<ContentShape> {
+  const current = await readContent();
+  const posts = current.casePosts ?? [];
+  const idx = posts.findIndex((p) => p.id === id);
+  if (idx === -1) {
+    throw new Error("Case post not found");
+  }
+  const post = posts[idx];
+  const updated: CasePost = {
+    ...post,
+    ...(updates.caption !== undefined && { caption: updates.caption.trim() }),
+    ...(updates.createdAt !== undefined && { createdAt: updates.createdAt }),
+  };
+  const nextPosts = [...posts];
+  nextPosts[idx] = updated;
+  return writeContent({ ...current, casePosts: nextPosts });
+}
+
 export async function removeCasePost(id: string): Promise<ContentShape> {
   const current = await readContent();
   const post = (current.casePosts ?? []).find((p) => p.id === id);

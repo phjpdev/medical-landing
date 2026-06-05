@@ -25,6 +25,10 @@ type ContentContextValue = {
   saveText: (key: string, value: string) => Promise<void>;
   uploadPhoto: (key: string, file: File) => Promise<void>;
   publishCasePost: (file: File, caption: string) => Promise<void>;
+  updateCasePost: (
+    id: string,
+    data: { caption: string; createdAt: string; file?: File | null },
+  ) => Promise<void>;
   deleteCasePost: (id: string) => Promise<void>;
   login: (username: string, password: string) => Promise<{ ok: boolean; error?: string }>;
   logout: () => Promise<void>;
@@ -139,6 +143,34 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const updateCasePost = useCallback(
+    async (id: string, data: { caption: string; createdAt: string; file?: File | null }) => {
+      const form = new FormData();
+      form.set("id", id);
+      form.set("caption", data.caption);
+      form.set("createdAt", data.createdAt);
+      if (data.file) form.set("file", data.file);
+      const res = await fetch("/api/admin/case-post", { method: "PATCH", body: form });
+      if (!res.ok) {
+        let message = `Update failed (${res.status})`;
+        try {
+          const j = (await res.json()) as { error?: string };
+          if (j.error) message = j.error;
+        } catch {
+          if (res.status === 413) message = "Image is too large. Try a smaller file.";
+        }
+        throw new Error(message);
+      }
+      const next = (await res.json()) as Content;
+      setContent({
+        text: next.text ?? {},
+        photos: next.photos ?? {},
+        casePosts: next.casePosts ?? [],
+      });
+    },
+    [],
+  );
+
   const deleteCasePost = useCallback(async (id: string) => {
     const res = await fetch("/api/admin/case-post", {
       method: "DELETE",
@@ -189,11 +221,23 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       saveText,
       uploadPhoto,
       publishCasePost,
+      updateCasePost,
       deleteCasePost,
       login,
       logout,
     }),
-    [content, isAdmin, refresh, saveText, uploadPhoto, publishCasePost, deleteCasePost, login, logout],
+  [
+      content,
+      isAdmin,
+      refresh,
+      saveText,
+      uploadPhoto,
+      publishCasePost,
+      updateCasePost,
+      deleteCasePost,
+      login,
+      logout,
+    ],
   );
 
   return <ContentContext.Provider value={value}>{children}</ContentContext.Provider>;
