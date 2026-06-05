@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cormorant_Garamond, Inter, Noto_Serif_TC, Noto_Sans_TC } from "next/font/google";
 import "./globals.css";
+
+const GA_ID = "G-S87PHWL48F";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -48,6 +51,20 @@ export default function RootLayout({
       className={`${cormorant.variable} ${inter.variable} ${notoSerifTC.variable} ${notoSansTC.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+      </head>
       <body>
         {/* Page-wide fixed gold-waves backdrop (mobile + desktop variants in globals.css) */}
         <div className="page-backdrop" aria-hidden />
